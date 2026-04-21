@@ -1,11 +1,8 @@
 USE [master]
 GO
 /****** 对象:  Database [QPAgencyDB]    脚本日期: 07/29/2014 16:11:52 ******/
-CREATE DATABASE [QPAgencyDB] ON  PRIMARY 
-( NAME = N'QPAgencyDB', FILENAME = N'D:\数据库\QPAgencyDB.mdf' , SIZE = 4096KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
- LOG ON 
-( NAME = N'QPAgencyDB_log', FILENAME = N'D:\数据库\QPAgencyDB_log.LDF' , SIZE = 4096KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
- COLLATE Chinese_PRC_CI_AS
+CREATE DATABASE [QPAgencyDB]
+COLLATE Chinese_PRC_CI_AS
 GO
 EXEC dbo.sp_dbcmptlevel @dbname=N'QPAgencyDB', @new_cmptlevel=90
 GO

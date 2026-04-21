@@ -1,10 +1,7 @@
 USE [master]
 GO
 /****** 对象:  Database [QPPlatformManagerDB]    脚本日期: 04/25/2011 17:01:53 ******/
-CREATE DATABASE [QPPlatformManagerDB] ON  PRIMARY 
-( NAME = N'QPPlatformManagerDB', FILENAME = N'D:\数据库\QPPlatformManagerDB.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
- LOG ON 
-( NAME = N'QPPlatformManagerDB_log', FILENAME = N'D:\数据库\QPPlatformManagerDB_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+CREATE DATABASE [QPPlatformManagerDB]
 GO
 EXEC dbo.sp_dbcmptlevel @dbname=N'QPPlatformManagerDB', @new_cmptlevel=90
 GO

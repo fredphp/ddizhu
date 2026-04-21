@@ -1,10 +1,7 @@
 USE [master]
 GO
 /****** 对象:  Database [QPNativeWebDB]    脚本日期: 04/15/2011 16:38:08 ******/
-CREATE DATABASE [QPNativeWebDB] ON  PRIMARY 
-( NAME = N'QP_News', FILENAME = N'D:\数据库\QPNativeWebDB.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
- LOG ON 
-( NAME = N'QP_News_log', FILENAME = N'D:\数据库\QPNativeWebDB_log.ldf' , SIZE = 2048KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+CREATE DATABASE [QPNativeWebDB]
 GO
 EXEC dbo.sp_dbcmptlevel @dbname=N'QPNativeWebDB', @new_cmptlevel=90
 GO
