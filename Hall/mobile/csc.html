@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <title>客服 - 豪门世纪星</title>
+  <link rel="stylesheet" href="css/csc.css" />
+</head>
+<body>
+  <button style="width:104px;height:30px;position:fixed;right:0;border:none;z-index:+9;background:url('images/close.png') no-repeat" onclick="callOC2('testFunc',{'param1':76,'param2':155,'param3':76})"></button>
+  <ul>
+    <li><span>遇到什么困难或有什么意见请联系客服</span></li>
+    <li><a target="csc" href="mqqwpa://im/chat?chat_type=wpa&uin=995755888"><img src="images/csc/QQ.png" /><span>QQ: 995755888</span></a></li>
+    <li><a target="csc" href="//kf1.learnsaas.com/chat/chatClient/chatbox.jsp?companyID=557782&configID=54786&jid=6398575120"><img src="images/csc/Live.png" /><span>在线客服: 万国客服中心</span></a></li>
+  </ul>
+  <iframe name="csc"></iframe>
+  <script src="js/jquery.js"></script>
+  <script>$("a").on("click",function(e){if(this.href.split("://")[0]!="mqqwpa") $("iframe").show()});
+function callOC2(func,param){
+        var iframe = document.createElement("iframe");
+        var url= "myapp:" + "&func=" + func;
+        for(var i in param)
+            url = url + "&" + i + "=" + param[i];
+        iframe.src = url;
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+        iframe.parentNode.removeChild(iFrame);
+        iframe = null;
+}
+</script>
+</body>
+</html>

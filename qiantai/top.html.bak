@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script>document.write('<meta name="viewport" content="width=device-width, initial-scale=1" />')</script>
+  <!--<script>document.write('<meta name="viewport" content="initial-scale='+(window.screen.height/30)+'" />')</script>-->
+  <title>万国娱乐</title>
+  <style>
+html,body{overflow:hidden}
+body{margin:0;-webkit-user-select:none}
+body>div{position:relative;overflow:hidden}
+body>div>ul{width:100%;margin:0;padding:0;list-style:none;white-space:nowrap;font-size:14px;color:#fff;overflow-x:hidden}
+body>div li{display:inline-block;padding:0 12px;height:30px}
+body>div li *{line-height:30px}
+  </style>
+</head>
+<body scroll="no">
+  <div></div>
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.marquee.js"></script>
+  <script>
+    var toi,tao=$("<textarea/>"),obj=$("<ul/>").appendTo("body>div"),loc=location.search.split("?").pop()||"hall",url=location.protocol.indexOf("http")?"http://www.if0009.com:8442/WS/Validate.ashx/Info":"/WS/Validate.ashx/Info";
+    $(document).ajaxSuccess(function(){obj.marquee()});
+    $.support.cors=true;
+    (function getData(){if(toi) clearTimeout(toi);$.ajax({contentType:"application/json;charset=utf-8",url:url,type:"POST",crossDomain:true,dataType:"json",data:loc,success:function(data){obj.html("");$.each(data,function(i,e){obj.append("<li>"+tao.html(e.c).val()+"</li>")})}});toi=setTimeout(getData,20000)})();
+  </script>
+</body>
+</html>

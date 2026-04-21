@@ -1,0 +1,56 @@
+﻿*{padding:0;margin:0; list-style:none;}
+body
+{
+    font-family:Arial,​Helvetica,​sans-serif,​"新微软雅黑";
+    font-size:12px;
+}
+ul {
+    list-style: outside none none;
+}
+.footer 
+{
+    /*background-color:#222;*/
+    height: auto;
+    /*margin: 0;*/
+    clear:left;
+    margin-top:200px;
+}
+.clear {
+    clear: both;
+    display: block;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+#footermsg {
+    /*background: #222 none repeat scroll 0 0;*/
+    color: #ffffff;
+    height: 55px;
+    line-height: 25px;
+    margin: 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+@media screen and (max-width: 850px) {
+    #footermsg {display:none;}
+    #headerBox{display:none;}
+    .Context-top {display:none;}
+    #ContextTopbox {height:auto;}
+    #ContextTopbox {width:100%;}
+    .Contexttop,.Contexttop,.con-con{width:100%;}
+    .Contextmiddle{width:100%;background-position:50% 0;}
+    .content{margin:0 2%;width:96%;min-height:0;}
+    .Contextmiddle{width:100%;height:auto;}
+    .con-con { margin-left: 0; }
+    .btnReset {margin: 0;}
+    .btnAffirm{margin:0;}
+    .con-bottom,.con-top,.con-middle{width:100%;background-image:none;}
+    #regin-bottom{width:100%;text-align:center;height:60px;line-height:60px}
+    table{padding:0 25px;box-sizing:border-box;}
+    .textreg{width:18%; border: 0 solid red; color: White;}
+    #txtTitle{width:50%!important;}
+    .spancon textarea{width:50%!important;}
+    input,textarea{background-color:#721e5a!important;}
+    .btn {display:block;}
+}

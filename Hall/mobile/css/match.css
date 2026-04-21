@@ -1,0 +1,33 @@
+﻿body>dl{background-image:none}
+body>dl>dt.detail{height:0;visibility:hidden}
+
+ul.detail>li>span:first-child,
+ul.detail>li>span:first-of-type,
+h3.detail>span:first-of-type{width:220px}
+ul.detail>li>span:nth-of-type(2),
+h3.detail>span:nth-of-type(2){width:130px}
+ul.detail>li>span:nth-of-type(3),
+h3.detail>span:nth-of-type(3){width:80px}
+ul.detail>li>span:nth-of-type(4),
+h3.detail>span:nth-of-type(4){width:80px}
+ul.detail>li>span:nth-of-type(5),
+h3.detail>span:nth-of-type(5){width:60px}
+ul.detail>li>span:nth-of-type(6),
+h3.detail>span:nth-of-type(6){width:60px}
+ul.detail>li>span:nth-of-type(7),
+h3.detail>span:nth-of-type(7){width:60px}
+
+.modal{display:none;width:400px;height:85px;position:fixed;top:100px;margin:0 auto;overflow:hidden;border:2px solid #e1e1e1;box-shadow:0 0 10px 0 rgba(0,0,0,.15);background:url(../images/match/windows1.jpg) repeat-x top #e1e1e1}
+.modal.rule{left:180px}
+.modal.rank{left:80px}
+.modal a{display:block;text-align:center}
+.modal a:last-child{position:absolute;top:0;right:0;padding:5px;}
+.modal h2{margin:0;padding:0;font-size:18px;font-weight:bold;line-height:42px;text-indent:20px;color:white;background:none}
+.modal table{width:100%;border:none}
+.modal thead{line-height:42px;background:transparent;border:none}
+.modal thead th:last-child{padding-right:42px}
+
+.modal table td{text-align:center}
+.rank{width:600px}
+.rank tbody tr td:first-child{text-align:center}
+

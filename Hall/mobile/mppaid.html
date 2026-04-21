@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>微信充值</title>
+  <link rel="stylesheet" href="css/mppaid.css">
+  <style>
+    form{font-size:1rem}
+    form input{width:220px;height:20px;border:medium none;color:#666;font-size:1rem;margin-bottom:8px;padding:1%}
+    form button{width:121px;height:38px;margin-top:15px;border:none;background:url(images/paid/pay.png) transparent;cursor:pointer}
+  </style>
+</head>
+<body>
+  <form>
+    <input type="hidden" name="payment" value="Alipay" checked>
+    <div class="bd1">
+      <div class="wa">
+        <div class="wa_wrapImgList">
+          <p>本平台充值比例为 1RMB:1金币!</p>
+          <p>充值成功后,请直接去大厅(银行)里面提取金币!</p>
+          <p style="color:#36F">
+            {输入游戏帐号和充值金额，然后显示二维码}<br>
+            {长按-&gt;识别图中二维码，进行充值}
+          </p>
+        </div>
+      </div>
+      <div class="hj_wrapImgList2" style="font-size:16px">
+        <center>
+          充值账号：<input name="usr" required /><br>
+          确认账号：<input name="reu" required /><br>
+          充值金额：<input name="sum" required value="20" /><br>
+        </center>
+      </div>
+      <div class="hj_wrapImgList4">
+        <center>
+          <button name="btnok" id="btnok" style=""></button>
+        </center>
+      </div>
+    </div>
+  </form>
+  <script src="js/jquery.js"></script>
+  <script src="js/shared.js"></script>
+</body>
+</html>

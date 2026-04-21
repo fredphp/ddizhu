@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" CodeBehind="Callback.aspx.cs" Inherits="Game.Web.Pay.Callback" %>

@@ -1,0 +1,70 @@
+﻿body>dl>dt.wheel{background-image:url(../images/promo/wheel.png)}
+body>dl>dt.task{background-image:url(../images/promo/task.png)}
+body>dl>dt.tiro{background-image:url(../images/promo/tiro.png)}
+body>dl>dt.paid{background-image:url(../images/promo/paid.png)}
+body>dl>dt.pack{background-image:url(../images/promo/pack.png)}
+body>dl>dt.last{background-image:url(../images/promo/last.png)}
+body>dl>dt.money{background-image:url(../images/promo/money.png)}
+
+body>div.msg,body>div.moneymsg{display:none;width:524px;height:251px;position:absolute;top:0;left:0;padding:170px 122px 87px 120px;z-index:+9;color:#fff;background:url(../images/msg.png) no-repeat 120px 170px rgba(125,125,125,.05)}
+body>div.msg>div,body>div.moneymsg>div{display:block;width:464px;height:111px;margin:58px 21px 3px 23px;padding:8px;background:transparent}
+body>div.msg>button,body>div.moneymsg>button{display:block;width:85px;height:28px;margin:15px auto 0;font:500 14px "Microsoft YaHei";color:#2d1b19;background:url(../images/btn.png) left no-repeat}
+body>div.msg>button:hover,body>div.moneymsg>button:hover{background-position:right}
+
+dt.wheel+dd,
+dt.tiro+dd,
+dt.paid+dd,
+dt.pack+dd{background-image:none}
+dt.task+dd{background-position:50% 12px}
+dt.task+dd>form{line-height:12px}
+
+body>dl{overflow:hidden}
+body>dl>dd{height:399px}
+body>dl>dt.task+dd{background-size:756px 390px}
+ul.task{height:initial}
+
+#disc~div{vertical-align:top}
+#disc{width:457px;height:457px;position:absolute;margin:8px;pointer-events:none;background:url(../images/promo/disc.png) no-repeat 2px 6px}
+#disc>div{width:457px;height:457px;position:absolute;background:url(../images/promo/light.png) no-repeat 2px 6px}
+#disc>div{animation:trun 1000ms infinite}
+#disc~.arrow{display:inline-block;width:255px;height:255px;position:relative;margin:8px;padding:101px;background:url(../images/promo/arrow.png) no-repeat 50% 101px}
+#disc~.arrow button{width:126px;height:127px;position:relative;top:63px;left:-63px;margin:0 50%;background:url(../images/promo/start.png) left}
+#disc~.arrow button:hover{background-position:center}
+/*#disc~.arrow button:disabled{background-position:right}*/
+#disc~.list{display:inline-block;width:219px;height:333px;position:relative;margin:42px 18px;border:thin solid transparent;border-width:40px 13px 15px;overflow:hidden;background:url(../images/promo/list.png) -13px -40px no-repeat}
+#disc~.list>ul{margin:0;padding:0;list-style:none;font-size:14px;color:#b1b4b4}
+#disc~.list li{line-height:20px;padding:4px;text-align:center}
+#disc~.list li b{color:red}
+
+@keyframes rotate{from{transform:rotate(0)}to{transform:rotate(0)}}
+
+
+@keyframes trun{
+  0%,48%{transform:rotate(0)}
+  49%,50%{transform:rotate(15deg)}
+  51%,98%{transform:rotate(15deg)}
+  99%,100%{transform:rotate(30deg)}
+}
+
+ul.task>li>span:first-child,
+ul.task>li>span:first-of-type,
+h3.task>span:first-of-type{width:180px}
+ul.task>li>span:nth-of-type(2),
+h3.task>span:nth-of-type(2){width:110px}
+ul.task>li>span:nth-of-type(3),
+h3.task>span:nth-of-type(3){width:110px}
+ul.task>li>span:nth-of-type(4),
+h3.task>span:nth-of-type(4){width:110px}
+ul.task>li>span:nth-of-type(5),
+h3.task>span:nth-of-type(5){width:110px}
+ul.task>li>span:nth-of-type(6),
+h3.task>span:nth-of-type(6){width:110px}
+
+dt.tiro+dd>ul,
+dt.paid+dd>ul,
+dt.pack+dd>ul{margin:8px 0;padding:0}
+dt.tiro+dd li,
+dt.paid+dd li,
+dt.pack+dd li{display:inline-block;padding:8px}
+dt+dd li>a{position:relative}
+li>a>img+img{position:absolute;bottom:15px;left:65px}

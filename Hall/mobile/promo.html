@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=766" />
+  <title>活动中心</title>
+  <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="css/promo.css" />
+</head>
+<body scroll="no">
+  <button style="width:104px;height:30px;position:fixed;right:0;border:none;z-index:+9;background:url('images/close.png') no-repeat" onclick="callOC2('testFunc',{'param1':76,'param2':155,'param3':76})"></button>
+  <dl>
+    <dt class="wheel Home"><a href="./promo.html?wheel"></a></dt>
+    <dd>
+      <div id="disc"><div></div></div>
+      <div class="arrow start"><button type="button"></button></div>
+      <div class="list"><ul></ul></div>
+    </dd>
+    <dt class="task"><a href="./promo.html?task"></a></dt>
+  
+    
+  </dl>
+  <div class="msg"><div></div><button type="button">关闭</button></div>
+  <iframe name="pro"></iframe>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.marquee.js"></script>
+  <script src="js/jquery.rotate.js"></script>
+  <script src="js/shared.js"></script>
+  <script>
+    function callOC2(func,param){
+        var iframe = document.createElement("iframe");
+        var url= "myapp:" + "&func=" + func;
+        for(var i in param) url = url + "&" + i + "=" + param[i];
+        iframe.src = url;
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+        iframe.parentNode.removeChild(iFrame);
+        iframe = null;
+}
+  </script>
+</body>
+</html>

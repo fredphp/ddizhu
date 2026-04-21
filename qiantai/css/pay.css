@@ -1,0 +1,49 @@
+﻿html {
+	overflow: hidden
+}
+body {
+	width: 797px;
+	height: 543px;
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	background: url(../images/bg.jpg) no-repeat #170b03;
+	font-family:"微软雅黑";
+}
+
+a img {
+	border: none
+}/*fix ie8*/
+li, a {
+	width: 220px;
+	height: 57px;
+	float: left;
+	margin-left: 10px;
+	list-style-type: none;
+	display: block
+}
+.wx {
+	background-image: url(../images/wx.png)
+}
+.yl {
+	background-image: url(../images/yl.png)
+}
+.ali {
+	background-image: url(../images/ali.png)
+}
+h2 {
+	text-align: center;
+	color: #FFF;
+	font-size: 18px;
+	margin-top: 60px
+}
+span {
+	color: #FC0;
+	font-size: 14px
+}
+.kao {
+	margin-left: 100px
+}
+li, td{ color:#FC6}
+#content{ margin-top:30px}

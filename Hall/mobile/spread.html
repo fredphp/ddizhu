@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>推广中心 - 豪门世纪星</title>
+  <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="css/spread.css" />
+</head>
+<body scroll="no">
+    <button style="width:105px;height:45px;position:fixed;top:6px;right:6px;border:none;z-index:+9;background:url('images/close.png') no-repeat;background-size:105px 45px" onclick="CloseWindow()"></button>
+  <dl>
+    <dt class="statistics Home"><a href="./spread.html?statistics"></a></dt>
+    <dd>&nbsp;
+      <form><input type="radio" name="date" value="today" /><input type="radio" name="date" value="preday" /> &nbsp;<input type="radio" name="date" value="thisweek" /><input type="radio" name="date" value="lastweek" /></form>
+      <table class="statistics">
+        <thead><tr><th>下线等级</th><th>抽水贡献</th><th>抽水比例</th><th>获得抽水</th></tr></thead>
+        <tbody><tr><td>一级</td><td>0</td><td>10.00%</td><td>0</td></tr>
+        <tr><td>二级</td><td>0</td><td>5.00%</td><td>0</td></tr>
+        <tr><td>三级</td><td>0</td><td>3.00%</td><td>0</td></tr>
+        <tr><td>四级</td><td>0</td><td>2.00%</td><td>0</td></tr>
+        <tr><td>五级</td><td>0</td><td>1.00%</td><td>0</td></tr></tbody>
+      </table>
+      <ul class="total">
+        <li><span>贡献小结：</span> 0</li>
+        <li><span>获益小结：</span> 0</li>
+        <li><span>总抽水：</span> 0</li>
+        <li><span>已提取：</span> 0</li>
+        <li><span>待提取：</span> 0</li>
+      </ul>
+      <form><img src="images/spread/sum.png" /><input name="sum" type="number" placeholder="提取金额" required /><button></button></form>
+      <a href="https://www.ifeng7777.com/User/RecordUserRevenueList" target="_blank"></a>
+    </dd>
+    <dt class="profitable"><a href="./spread.html?profitable"></a></dt>
+    <dd>
+      <p>
+        告别金字塔利己模式， 享受网络游戏互惠共赢游戏人生。<br />
+        在这里，您获得的所有推广回报均从游戏平台运维资金中分出， 您不需要强推亲朋好友花钱充值。<br />
+        介绍本平台给他们，当他们在快乐游戏中获胜盈利是， 您就能得到本平台的回馈。<br />
+        <br />
+        <span>没错！您获利，正因为您推荐的人获利！</span><br />
+      </p>
+      <div>
+        1. 注册推广码地址（复制并粘贴给好友）。<br />
+        <input class="url" readonly /><button class="copy"></button><br />
+        2. 让好友在推广人一栏填上你的游戏账号。<br />
+        <!--3. 设置本机为默认推荐人。<button class="seto"></button><br />-->
+      </div>
+    </dd>
+    <!--<dt class="last"><a href="./spread.html?last"></a></dt><dd></dd>-->
+  </dl>
+
+  <div class="msg"><div></div><button type="button">关闭</button></div>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/shared.js"></script>
+  <script>
+    $(".url").val("https://"+data.uid+".ifeng7777.com");
+    $('input[name=date][value="today"]').get(0).click();
+  </script>
+</body>
+</html>

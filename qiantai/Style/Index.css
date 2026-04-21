@@ -1,0 +1,227 @@
+﻿*
+{
+    list-style-type:none;
+    padding:0;
+    margin:0;
+}
+body
+{
+    background: #25031b none repeat scroll 0 0;
+}
+#index-content {
+    /*background:  url("/Images/index/cbg.jpg") no-repeat scroll 100% 0;*/
+    margin: 0 auto;
+    min-height: 556px;
+}
+#content-top {
+    height: 210px;
+    margin: 0 auto;
+    width: 1000px;
+}
+#centent-topleft {
+    background:  url("/Images/index/newbg.png") no-repeat scroll 100% 0;
+    display: block;
+    float: right;
+    height: 195px;
+    margin-left: 20px;
+    margin-top: 10px;
+    width: 265px;
+    z-index: 2;
+}
+#roll-title {
+    height: 50px;
+}
+#roll-centent {
+    display: inline-block;
+    height: 82px;
+    margin-left: 38px;
+    overflow: hidden;
+    width: 220px;
+    color:#fff;
+    font-size:12px;
+    margin-top:30px;
+}
+#centent-topright {
+    background:  url("/Images/index/fwtu.png") no-repeat scroll 100% 0;
+    display: block;
+    float: left;
+    height: 148px;
+    margin-left: 56px;
+    margin-top: 8px;
+    width: 299px;
+    z-index: 2;
+}
+#centent-middle {
+    background:  url("/Images/index/shouye.png") no-repeat scroll center 0;
+    height: 548px;
+    margin: 0 auto;
+    width: 1200px;
+}
+ul
+{
+    list-style:outside none none;
+}
+#centent-middle ul li
+{
+    float:left;
+    height: 143px;
+    width: 250px;
+}
+.middleli_01 {
+    margin: 113px 0 0 -404px;
+}
+.middleli_02 {
+    margin: 246px 0 0 -345px;
+}
+.middleli_03 {
+    margin: 389px 0 0 -243px;
+}
+.middleli_04 {
+    margin: -56px 0 0 410px;
+}
+.middleli_05 {
+    margin: -2px 0 0 372px;
+}
+.middleli_06 {
+    margin: -6px 0 0 267px;
+}
+#centent-middle li a 
+{
+    height: 126px;
+    margin: 0 auto;
+    width: 288px;
+}
+a.middle_01 
+{
+    background:  url("/Images/index/gdyx.png") no-repeat scroll 0 0;
+    display: block;
+}
+a.middle_01:hover 
+{
+    background-position:-289px 0;
+}
+a.middle_02 
+{
+    background:  url("/Images/index/wxhh.png") no-repeat scroll 0 0;
+    display: block;
+}
+a.middle_02:hover 
+{
+    background-position:-290px 0;
+}
+a.middle_03 
+{
+    background:  url("/Images/index/srnn.png") no-repeat scroll 0 0;
+    display: block;
+}
+a.middle_03:hover 
+{
+    background-position:-289px 0;
+}
+a.middle_04 
+{
+    background:  url("/Images/index/lkpy.png") no-repeat scroll 0 0;
+    display: block;
+}
+a.middle_04:hover 
+{
+    background-position:-289px 0;
+}
+a.middle_05 
+{
+    background:  url("/Images/index/zjh.png") no-repeat scroll 0 0;
+    display: block;
+}
+a.middle_05:hover 
+{
+    background-position:-289px 0;
+}
+a.middle_06 
+{
+    background:  url("/Images/index/rrmj.png") no-repeat scroll 0 0;
+    display: block;
+}
+a.middle_06:hover 
+{
+    background-position:-289px 0;
+}
+#centent-bottom {
+    background:  url("/Images/index/centent-bottombg.jpg") no-repeat scroll 100% 0;
+    height: 209px;
+    margin: 0 auto;
+    width: 985px;
+}
+.bottomleftli {
+    float: left;
+    height: 171px;
+    margin: 30px auto 0 10px;
+    position: relative;
+    width: 480px;
+    z-index: 1;
+}
+.bottomrightli {
+    float: left;
+    height: 171px;
+    margin-top:30px;
+    position: relative;
+    width: 485px;
+    z-index: 1;
+}
+#centent-bottom li a {
+    height: 171px;
+    width: 480px;
+}
+.bottomleftli a {
+    float: left;
+    height: 171px;
+    line-height: 171px;
+    width: 387px;
+}
+a.bottomleft:hover {
+    background:  url("/Images/index/btnreg.jpg") no-repeat scroll 0 0;
+    display: block;
+}
+#centent-bottom .bottomrightli a {
+    float: right;
+    height: 171px;
+    line-height: 171px;
+    width: 387px;
+}
+a.bottomright:hover {
+    background:  url("/Images/index/btnact.jpg") no-repeat scroll 0 0;
+    display: block;
+}
+.index-top {
+    /*float:left;*/
+    height:100px;
+    width:575px;
+    text-align:center;
+    margin-left:200px;
+    padding-top:70px;
+}
+.index-top .span3 {
+    margin-left:50px;
+}
+.index-top .span2 {
+    position:relative;
+    top:-142px;
+}
+.index-top .a1{
+    width:199px;
+    height:43px;
+    background:  url("/Images/index/but.png") no-repeat scroll 0 0;
+    display:inline-block;
+}
+.index-top .a1:hover {
+    background-position:0 -44px;
+}
+.index-top .a2{
+    width:211px;
+    height:43px;
+    background:  url("/Images/index/but.png") no-repeat scroll -199px 0;
+    display:inline-block;
+    margin-left:20px;
+}
+.index-top .a2:hover {
+    background-position:-199px -44px;
+}

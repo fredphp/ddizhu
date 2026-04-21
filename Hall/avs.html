@@ -1,0 +1,35 @@
+﻿<!--[if !IE]>--><!DOCTYPE html><!--<![endif]-->
+<!--[if gte IE 8]><!DOCTYPE html><![endif]-->
+<!--[if lt IE 8]><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"><![endif]-->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>豪门世纪星</title>
+  <style>
+html,body{overflow:hidden}
+body{margin:0;background:url(images/avs/bg.png) no-repeat}
+body>div{width:594px;height:88px;position:relative;overflow:hidden}
+body>div>ul{display:block;margin:0;padding:0;list-style:none;font-size:12px;color:#fff}
+body>div li{height:88px;padding:0}
+body>div li *{height:88px}
+body>textarea{display:none}
+  </style>
+</head>
+<body scroll="no">
+  <div></div>
+  <script src="Scripts/jquery.js"></script>
+  <script src="Scripts/jquery.marquee.js"></script>
+  <script>
+    var data=[7,3,4];
+    var toi,tao=$("<textarea/>"),obj=$("<ul/>").appendTo("body>div"),loc=location.search.split("?").pop()||"hall",url=location.protocol.indexOf("http")?"http://www.if0009.com:8442/WS/Validate.ashx/Info":"/WS/Validate.ashx/Info";
+    //$(document).ajaxSuccess(function(){obj.parent().marquee()});
+    $.support.cors=true;
+    $.each(data,function(i,e){$("<li><img src='images/avs/av"+e+".png'/></li>").appendTo(obj)});
+    var s=88;r=0,d=500,e=$(obj).parent();
+    (function m(v){$(e).stop().animate({scrollTop:s},v||d,"swing",function(){s+=88;if(s>=data.length*88) s=0;r=setTimeout(m,6000)})})(200);
+    //(function getData(){if(toi) clearTimeout(toi);$.ajax({contentType:"application/json;charset=utf-8",url:url,type:"POST",crossDomain:true,dataType:"json",data:loc,success:function(data){obj.html(""),$.each(data,function(i,e){$("<li>"+tao.html(e.c).val()+"</li>").appendTo(obj)})}});toi=setTimeout(getData,20000)})()
+  </script>
+</body>
+</html>

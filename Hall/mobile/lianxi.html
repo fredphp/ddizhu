@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=766" />
+    <title>支付中心 - 豪门世纪星</title>
+    <link rel="stylesheet" href="css/shared.css" />
+    <link rel="stylesheet" href="css/paid.css" />
+</head>
+<body>
+    <button style="width:105px;height:45px;position:fixed;top:6px;right:6px;border:none;z-index:+9;background:url('images/close.png') no-repeat;background-size:105px 45px" onclick="CloseWindow()"></button>
+    <dl>
+        <dt class="qrpay Home">
+            <button id="wanjia" class="btnc inl">玩家充值</button>
+            <button id="daili" class="btnc">代理充值</button>
+        </dt>
+        <dd>
+            <div class="tips">
+                联系客服QQ:XXXXXX
+            </div>
+        </dd>
+    </dl>
+
+    <div class="msg">
+        <div></div>
+        <button type="button">关闭</button>
+    </div>
+
+    <iframe name="pay"></iframe>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/shared.js"></script>
+    <script>
+    $("#wanjia").on("click",function(){
+        location.href="paid.html";
+    });
+    $("#daili").on("click",function(){
+        location.href="daili.html";
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿body>dl{background:url(../images/bg.png) no-repeat}
+
+body>dl>dt.convert{background-image:none}
+
+body>dl>dd>.nav{display:block;width:100%;position:absolute;bottom:0;text-align:center;color:#fff}
+
+dt.convert+dd{background-image:none}
+
+div[step]{display:none;height:375px}
+div[step="1"]{background:url(../images/withdraw/step1.png) 35% 12px no-repeat}
+div[step="2"]{background:url(../images/withdraw/step2.png) 50% 12px no-repeat}
+div[step="3"]{background:url(../images/withdraw/step3.png) 50% 12px no-repeat}
+
+div[step="1"]{margin-left:-47px;padding:73px 0 0;line-height:34px}
+div[step="1"]>span{display:inline-block;width:150px;height:42px;line-height:40px}
+div[step="1"]>span:nth-of-type(2n+1){margin-left:258px}
+div[step="1"]>span:nth-of-type(2n){margin-left:118px}
+div[step="1"]>hr{margin:6px 1px 0;border:none}
+div[step="1"]>input{width:168px;height:28px;line-height:28px\9;color:#fff;background:transparent}
+div[step="1"]>input:nth-of-type(2n+1){margin-left:126px}
+div[step="1"]>input:nth-of-type(2n){margin-left:75px}
+div[step="1"]>textarea{width:238px;height:52px;margin-left:126px;margin-top:5px;padding:4px;outline:none!important;border:none!important;resize:none;color:#fff;overflow:hidden;background:transparent}
+div[step="1"]>.tips{margin-top:2em;text-align:center;font-size:12px;color:#dbb002}
+
+div[step="2"]{padding:88px 0 0 240px;line-height:27px}
+div[step="2"]>span{line-height:30px}
+div[step="2"]>hr{margin:24px 1px 0;border:none}
+div[step="2"]>input{width:140px;height:28px;line-height:28px\9;margin-left:10px;margin-top:9px;color:#fff;background:transparent}
+
+div[step="3"]{padding:155px 0 0 330px;line-height:27px}
+div[step="3"]>span{line-height:38px}
+form>button{display:none}
+
+dt.convert+dd button{width:128px;height:52px;margin:0 36px;background-image:none}
+dt.convert+dd .next{background:url(../images/withdraw/confirm.png) no-repeat left}
+dt.convert+dd .edit{background:url(../images/withdraw/edit.png) no-repeat left}
+dt.convert+dd button:hover{background-position:66.666667% 50%}
+dt.convert+dd button:active{background-position:33.333333% 50%}
+dt.convert+dd button:disabled{background-position:right 50%}
+
+.step1,.step2,.step3{display:none}
+
+.modal{display:none;position:fixed;margin:0 auto;overflow:hidden;border:2px solid #e1e1e1;box-shadow:0 0 10px 0 rgba(0,0,0,.15);background:url(../images/match/windows1.jpg) repeat-x top #e1e1e1}
+.modal a{display:block;text-align:center}
+.modal a:last-child{position:absolute;top:0;right:0;padding:5px;}
+.info{width:450px;height:235px;left:158px;left:calc((100vw - 450px)/2);top:100px;top:calc((100vh - 235px)/2);text-align:center}
+.info>form{margin:1em 0;padding:0;line-height:2em;font:500 24px/2em "Microsoft YaHei",Arial}
+.info input{font-size:24px}
+.info h2{margin:0;padding:0;font-size:18px;font-weight:bold;line-height:42px;text-indent:20px;color:white;background:none}

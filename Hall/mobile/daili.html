@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=766" />
+    <title>支付中心 - 豪门世纪星</title>
+    <link rel="stylesheet" href="css/shared.css" />
+    <link rel="stylesheet" href="css/paid.css" />
+<style>
+/*li{list-style: none;padding-left:10px;text-align:left;border-bottom:1px solid #414344;}*/
+li{  
+    list-style-type:none;
+    width: 200px; 
+    float: left;
+    display: black;
+    border:1px solid red;
+
+}
+.ckcontact,.ckclose{float:right;margin-right:10px;}
+.detail{display: none;padding-left:30px;}
+</style>
+</head>
+<body>
+    <button style="width:105px;height:45px;position:fixed;top:6px;right:6px;border:none;z-index:+9;background:url('images/close.png') no-repeat;background-size:105px 45px" onclick="CloseWindow()"></button>
+    <dl>
+        <dt class="qrpay Home">
+            <button id="wanjia" class="btnc inl">自助充值</button>
+            <button id="daili" class="btnc btncur">代理代充</button>
+        </dt>
+        <dd>
+            <div class="tips">
+                <ul>
+                    <li>XXXX<span class="ckcontact">查看联系方式</span><span class="detail">QQ:XXXXXX, &nbsp&nbsp  微信:XXXXX<span class="ckclose">关闭</span></span></li>
+                    <li>XXXX<span class="ckcontact">查看联系方式</span><span class="detail">QQ:XXXXXX, &nbsp&nbsp  微信:XXXXX<span class="ckclose">关闭</span></span></li>
+                    <li>XXXX<span class="ckcontact">查看联系方式</span><span class="detail">QQ:XXXXXX, &nbsp&nbsp   微信:XXXXX<span class="ckclose">关闭</span></span></li>
+                </ul>
+            </div>
+        </dd>
+    </dl>
+
+    <div class="msg">
+        <div></div>
+        <button type="button">关闭</button>
+    </div>
+
+    <iframe name="pay"></iframe>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/shared.js"></script>
+    <script>
+    $("#wanjia").on("click",function(){
+        location.href="paid.html";
+    });
+    $("#lianxi").on("click",function(){
+        location.href="lianxi.html";
+    });
+    $(".ckcontact").on("click",function(){
+        $(this).hide();
+        $(this).parent().children().next().show();
+    });
+    $(".ckclose").on("click",function(){
+        $(this).parent().hide();
+        $(this).parent().parent().children().prev().show();
+    });
+  </script>
+</body>
+</html>

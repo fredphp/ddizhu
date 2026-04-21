@@ -1,0 +1,147 @@
+﻿<!--[if !IE]>--><!DOCTYPE html><!--<![endif]-->
+<!--[if gte IE 8]><!DOCTYPE html><![endif]-->
+<!--[if lt IE 8]><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"><![endif]-->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>用户中心</title>
+    <script src="/Scripts/help.js" type="text/javascript"></script> 
+<!--[if lte IE 6]> 
+<script src="/Scripts/DD_belatedPNG_0.0.8a.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+DD_belatedPNG.fix('div, ul, img, li, input , a, .png_bg'); 
+/* 将 .png_bg 改成你应用了透明PNG的CSS选择器*/ 
+</script> 
+<![endif]-->
+  <link rel="stylesheet" href="content/shared.css" />
+  <link rel="stylesheet" href="content/user.css" />
+  <link rel="stylesheet" href="content/tooltipster.css" />
+</head>
+<body scroll="no">
+  <dl>
+    <dt class="game Home"><a href="/user.html?game"></a></dt>
+    <dd>
+      <form>
+        <span>开始时间：</span><input type="date" name="from" /><button></button>
+        <span>结束时间：</span><input type="date" name="to" /><button></button>
+        <span>游戏名称：</span><select name="game"><option value="0" selected>全部游戏</option><option value="3">德州扑克</option><option value="6">炸如花</option><option value="7">十三张</option><option value="11">五星宏辉</option><option value="25">新版五张</option><option value="27">四人牛牛</option><option value="108">奔驰宝马</option><option value="120">二八杠</option><option value="122">家家乐</option><option value="200">斗地主</option><option value="301">二人大众麻将</option><option value="2015">捕鱼达人3</option><option value="2043">新.李逵劈鱼</option></select><button></button>
+        <div class="info"></div>
+      </form>
+      <h3 class="game"><span><img src="images/head/12.png" /></span><span><img src="images/head/11.png" /></span><span><img src="images/head/u3.png" /></span><span><img src="images/head/56.png" /></span><span><img src="images/head/u4.png" /></span></h3>
+      <ul class="game"></ul>
+    </dd>
+    <dt class="paid"><a href="/user.html?paid"></a></dt>
+    <dd>
+      <form>
+        <span>开始时间：</span><input type="date" name="from" /><button></button>
+        <span>结束时间：</span><input type="date" name="to" /><button></button>
+        <button></button><span class="total">符合条件的充值记录总额为0.00</span>
+      </form>
+      <h3 class="paid"><span><img src="images/head/07.png" /></span><span><img src="images/head/25.png" /></span><span><img src="images/head/22.png" /></span><span><img src="images/head/08.png" /></span><span><img src="images/head/24.png" /></span></h3>
+      <ul class="paid"></ul>
+    </dd>
+    <dt class="draw"><a href="/user.html?draw"></a></dt>
+    <dd>
+      <form>
+        <span>开始时间：</span><input type="date" name="from" /><button></button>
+        <span>结束时间：</span><input type="date" name="to" /><button></button>
+        <span>状态：</span><select name="status"><option value="-1">全部状态</option><option value="0">申请中</option><option value="1">已处理</option><option value="2">拒绝</option><option value="3">已提现</option></select><button></button>
+      </form>
+      <h3 class="draw"><span><img src="images/head/33.png" /></span><span><img src="images/head/32.png" /></span><span><img src="images/head/34.png" /></span><span><img src="images/head/31.png" /></span><span><img src="images/head/37.png" /></span><span><img src="images/head/36.png" /></span><span><img src="images/head/35.png" /></span></h3>
+      <ul class="draw"></ul>
+    </dd>
+    <dt class="lucky"><a href="/user.html?lucky"></a></dt>
+    <dd>
+      <form>
+        <span>开始时间：</span><input type="date" name="from" /><button></button>
+        <span>结束时间：</span><input type="date" name="to" /><button></button>
+        <span>状态：</span><select name="status"><option value="-1">全部状态</option><option value="0">未中奖</option><option value="1">已中奖</option></select><button></button>
+      </form>
+      <h3 class="lucky"><span><img src="images/head/23.png" /></span><span><img src="images/head/09.png" /></span><span><img src="images/head/01.png" /></span><span><img src="images/head/05.png" /></span><span><img src="images/head/03.png" /></span><span><img src="images/head/02.png" /></span><span><img src="images/head/04.png" /></span></h3>
+      <ul class="lucky"></ul>
+    </dd>
+    <dt class="spread"><a href="user.html?spread"></a></dt>
+    <dd>
+      &nbsp;
+      <form><input type="radio" name="date" value="today" /><input type="radio" name="date" value="preday" /> &nbsp;<input type="radio" name="date" value="thisweek" /><input type="radio" name="date" value="lastweek" /></form>
+      <table class="spread">
+        <thead><tr><th>下线等级</th><th>抽水贡献</th><th>抽水比例</th><th>获得抽水</th></tr></thead>
+        <tbody>
+          <tr><td>一级</td><td>0</td><td>10.00%</td><td>0</td></tr>
+          <tr><td>二级</td><td>0</td><td>5.00%</td><td>0</td></tr>
+          <tr><td>三级</td><td>0</td><td>3.00%</td><td>0</td></tr>
+          <tr><td>四级</td><td>0</td><td>2.00%</td><td>0</td></tr>
+          <tr><td>五级</td><td>0</td><td>1.00%</td><td>0</td></tr>
+        </tbody>
+      </table>
+      <ul class="total">
+        <li><span>贡献小结：</span> 0</li>
+        <li><span>获益小结：</span> 0</li>
+        <li><span>总抽水：</span> 0</li>
+        <li><span>已提取：</span> 0</li>
+        <li><span>待提取：</span> 0</li>
+      </ul>
+      <form><img src="../images/spread/sum.png" /><input name="sum" type="number" placeholder="提取金额" required /><button></button></form>
+    </dd>
+    <!--<dt class="last"><a href="/user.html?last"></a></dt><dd></dd>-->
+  </dl>
+
+  <div class="info"></div>
+  <div class="content"></div>
+  <div class="msg"><div></div><button type="button">关闭</button></div>
+  <textarea></textarea>
+
+  <script src="scripts/datepicker.js"></script>
+  <script src="scripts/jquery.js"></script>
+  <script src="scripts/jquery.tooltipster.js"></script>
+  <!--[if IE]><script src="scripts/jquery.history.js"></script><![endif]-->
+  <!--[if lt IE 9]><script src="scripts/selectivizr.js"></script><script>$(document).ajaxSuccess(function(){$("[class^='slvzr-']").removeClass(function(i,c){return (c.match(/(^|\s)slvzr-\S+/g)||[]).join(' ')});Selectivizr.init()})</script><![endif]-->
+  <script src="scripts/shared.js"></script>
+    <script>
+    $(function(){setTimeout(getName,50)});
+
+    $("body>.content").click(function(e) { e.stopPropagation(); e.preventDefault(); return false; });
+    $("body>.info").click(function() { $("body>.info").hide(); $("body>.content").hide(); });
+    function showdrawinfo(id) {
+
+      //var drawinfo=$("#"+e).prev().attr("data-drawinfo").replace(/'/g,"\"");
+      var drawinfo=gis[id];//.replace(/'/g,"\"");
+      if(drawinfo.length<=0) {
+        alert("本局游戏没有输赢/游戏没有记录详情！");
+        return;
+      }
+
+      var obj=JSON.parse(drawinfo);//eval("("+drawinfo+")");
+
+      if(obj.r.k==undefined) { alert("信息格式不正确"); return; }
+      $("body>.info").show();
+
+      var res="";
+
+      res="<ul><li><h2>开牌结果："+replaceKey(obj.r.k).replace(/:/g,"")+"</h2></li>";
+      res+="<li><h2>下注综合："+replaceKey(obj.r.x)+"</h2></li>";
+      res+="</ul>";//<li><h2>总得分："+replaceKey(((obj.r.c)?obj.r.c:"--"))+"</h2></li>
+
+      var player="";
+      $.each(obj.p,function(i,e) {
+        if(e.n!=acc) return;
+        player+="<li><h3>玩家["+e.n+"]:</h3></li>";
+        player+="<li>玩家下注："+replaceKey(e.x)+"</li>";
+        player+="<li>玩家成绩："+replaceKey(e.c)+"</li>";
+      });
+      res+="<ul class='palyer'>"+player+"</ul>";
+
+      $("body>.content").html(res).height(/*s.height()<c.height()?(c.height()+20):*/"auto").show();
+    }
+
+    function replaceKey(a){
+      var ata=[" 黑桃: "," 红桃: "," 梅花: "," 方块: "," 大小王: "," 上门: "," 天门: "," 下门: "," 上天桥: "," 上下桥: "," 天下桥: "," 庄: "," 庄对: "," 庄天王: "," 闲: "," 闲对: "," 闲天王: "," 平: "," 同点平: "," 税收: "," 结果得分: ","奔驰×40: ","宝马×30: ","奥迪×20: ","大众×10: ","奔驰×5: ","宝马×5: ","奥迪×5: ","大众×5: "];
+      var ala=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","Z","Y","T","U","V","W","X","①","②","③"];
+
+      return a.replace(/([A-Z①-③])/g,function(m,p){return ata[ala.indexOf(p)]});
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" CodeBehind="UserService1.aspx.cs" Inherits="Game.Web.UserService.UserService1" %>

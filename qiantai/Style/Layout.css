@@ -1,0 +1,54 @@
+﻿*{padding:0; margin:0; list-style:none;}
+body {
+    color: White;
+    font-family: Verdana;
+    font-size: 12px;
+    line-height: 1.5;
+    background: #25031b none repeat scroll 0 0;
+}
+.content {
+    margin: 0 auto;
+    min-height: 600px;
+    width: 1000px;
+}
+.con-top {
+    background:  url("/Images/Other/regframe1.jpg") no-repeat scroll 0 0;
+    height: 23px;
+    margin: 0 auto;
+    width: 1000px;
+}
+.con-middle 
+{
+    /*background:url("/Images/Other/conbg.jpg") repeat-y 0 0 ;*/
+    margin: 0 auto;
+    width: 1000px;
+    height:auto;
+    display:block;
+    float:left;
+}
+.con-bottom {
+    background:  url("/Images/Other/regframe4.jpg") no-repeat scroll 0 0;
+    height: 23px;
+    margin: 0 auto;
+    width: 1000px;
+    clear:left;
+    float:left;
+}
+.con-con 
+{
+    display:block;
+    float: left;
+    width: 966px;
+    margin-left:17px;
+}
+#usul
+{
+    width: 600px;
+    margin: 0px auto;
+    font-size: 14px;
+    font-weight: bolder;
+}
+#usul li 
+{
+    line-height: 30px;
+}

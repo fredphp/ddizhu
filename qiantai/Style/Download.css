@@ -1,0 +1,62 @@
+﻿*{padding:0; margin:0; list-style:none;}
+body
+{
+    background: #25031b none repeat scroll 0 0;
+}
+
+.download-contentbottom {
+    background:  url("/Images/Index/shouye.png") no-repeat scroll 206px bottom;
+    min-height: 750px;
+    margin: 0 auto;
+    width: 1000px;
+}
+
+#downloadright {
+    float: right;
+    height: 240px;
+    margin-right: -96px;
+    margin-top: 240px;
+    width: 440px;
+    
+}
+
+#downloadright li {
+    float: left;
+    height: 110px;
+    margin: 0 auto 0 30px;
+    width: 298px;
+}
+
+#downloadright li a {
+    height: 81px;
+    margin: 0 auto;
+    width: 298px;
+    background:  url("/Images/GameIndex/downico.png") no-repeat scroll 0 0;
+}
+#downloadright li a.downloadjb {
+    background-position:0 0;   
+    display:block; 
+}
+#downloadright li a.downloadjb:hover {
+    background-position:0 -82px;    
+}
+#downloadright li a.downloadfull {
+    background-position:0 -164px;   
+    display:block; 
+}
+#downloadright li a.downloadfull:hover {
+    background-position:0 -245px;    
+}
+a.Thunderdownload {
+    background:  url("/Images/Thunderdownload.png") no-repeat scroll 0 0;
+    display: block;
+}
+
+#regin-top {
+    background:  url("/Images/GameIndex/yxxz.png") no-repeat scroll 0 0;
+    float: left;
+    height: 130px;
+    margin-top: 15px;
+    width: 248px;
+    margin-left:60px;
+}

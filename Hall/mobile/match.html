@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script>document.write('<meta name="viewport" content="width=device-width, initial-scale='+(window.screen.width/766)+'" />')</script>
+  <title>比赛专区 - 豪门世纪星</title>
+  <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="css/match.css" />
+</head>
+<body scroll="no">
+    <button style="width:105px;height:45px;position:fixed;top:6px;right:6px;border:none;z-index:+9;background:url('images/close.png') no-repeat;background-size:105px 45px" onclick="CloseWindow()"></button>
+  <dl>
+    <dt class="detail match Home"><a href="./match.html?detail"></a></dt>
+    <dd>
+      <form class="match">
+        <span>开始时间：</span><input type="date" name="from" /><button></button>
+        <span>结束时间：</span><input type="date" name="to" /><button></button>
+        <span>状态：</span><select name="status"><option value="-1">全部状态</option><option value="0">未开始</option><option value="1">比赛中</option><option value="2">未奖励</option><option value="3">已结束</option></select>
+        <button></button>
+      </form>
+      <h3 class="detail match"><span><img src="images/head/48.png" /></span><span><img src="images/head/45.png" /></span><span><img src="images/head/47.png" /></span><span><img src="images/head/46.png" /></span><span><img src="images/head/44.png" /></span><span><img src="images/head/43.png" /></span><span><img src="images/head/42.png" /></span><span><img src="images/head/41.png" /></span></h3>
+      <ul class="detail match"></ul>
+    </dd>
+  </dl>
+
+    <div class="rule modal">
+      <h2>奖励规则</h2>
+      <ul style="margin:0;padding:0"></ul>
+      <a class="cls" title="关闭" href="javascript:void(0)"><img src="images/match/queding.jpg"></a>
+      <a title="关闭" href="javascript:void(0)"><img src="images/match/close.jpg"></a>
+    </div>
+
+    <div class="rank modal">
+      <table>
+        <thead>
+          <tr>
+            <th>排名</th>
+            <th>玩家账号</th>
+            <th>奖金</th>
+            <th>盈利金币</th>
+            <th>状态</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <a title="关闭" href="javascript:void(0)"><img src="images/match/queding.jpg"></a>
+      <a title="关闭" href="javascript:void(0)"><img src="images/match/close.jpg"></a>
+    </div>
+
+    <div class="msg"><div></div><button type="button">关闭</button></div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/shared.js"></script>
+    <script>
+      $('.modal>a').on('click',function(){$('.modal').hide()});
+      $(function(){var now=new Date();$("input[name=from]").val("2016-01-01");$("dt.match+dd>form>button").get(0).click()});
+    </script>
+</body>
+</html>

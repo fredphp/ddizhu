@@ -1,0 +1,14 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <a id="qqhref" href="http://wpa.qq.com/msgrd?v=3&uin=&site=qq&menu=yes" target="_blank"></a>
+    <script>
+        window.location.href = document.getElementById("qqhref").attributes["href"].value;
+    </script>
+</body>
+</html>

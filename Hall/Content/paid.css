@@ -1,0 +1,87 @@
+﻿body>dl{background:url(../images/paid/bg.png) no-repeat 50% 0;background-size:770px 510px}
+body>dl>dt{height:38px}
+body>dl>dt:hover,
+body>dl>dt.active{background-position:right}
+/*
+body>dl>dt.transfer{left:285px;background-image:url(../images/paid/transfer.png)}
+body>dl>dt.netbank{background-image:url(../images/paid/netbank.png)}
+body>dl>dt.cashier{background-image:url(../images/paid/cashier.png)}
+body>dl>dt.prepaid{left:150px;background-image:url(../images/paid/prepaid.png)}
+body>dl>dt.mobipay{width:177px;left:420px;background-image:url(../images/paid/mobipay.png)}
+body>dl>dt.qrpay{width:177px;left:420px;background-image:url(../images/paid/mobipay.png)}
+*/
+body>dl>dt.netbank{background-image:url(../images/paid/netbank.png)}
+body>dl>dt.cashier{background-image:url(../images/paid/cashier.png)}
+body>dl>dt.prepaid{left:150px;background-image:url(../images/paid/prepaid.png)}
+
+body>dl>dt.qrpay{}
+
+body>dl>dd{color:yellow;background-image:none}
+body>dl>dd>div{padding:16px 0 0;line-height:48px;text-align:center;background:url(../images/line.png) no-repeat 50% bottom}
+body>dl>dd>form{line-height:1em;margin-left:0}
+
+dd>form>div{height:177px;margin-right:-20px;width:765px;}
+dd>form>p{margin:8px;text-indent:1em}
+dd>form input[type=radio]{width:17px;height:17px;background:url(../images/paid/radio.png) no-repeat left}
+dd>form input[type=radio][checked]{background-position:right}
+dd>form label{display:inline-block;width:100px;line-height:21px;text-align:right;color:#fff}
+dd>form input{width:179px;height:21px;line-height:21px\9;margin:2px 0;color:#fff;background:url(../images/input.png) no-repeat}
+dd>form input[name=sum]+label{width:auto;margin-left:5px!important;color:red}
+dd>form input[type=submit]{width:85px;height:28px;margin-left:336px;font-size:10pt;color:#000;background:url(../images/btn.png) no-repeat left}
+dd>form input:hover{background-position:right}
+
+dt.netbank+dd>form>div{background:url(../images/paid/banks.png) no-repeat 48px 5px}
+dt.netbank+dd>form>label{margin-left:185px}
+dt.netbank+dd>form input[type=radio]{margin:13px 145px 13px 25px}
+
+/*dt.netbank+dd>form>ul{margin:6px 0;padding-left:20px}
+dt.netbank+dd>form>ul>li{display:inline-block;width:180px;height:52px;margin:0 0 9px}
+dt.netbank+dd>form>ul input[type=radio]{margin:5px}
+dt.netbank+dd>form>label{margin-left:85px}
+dt.netbank+dd>form label[for=reu]{margin-left:25px}*/
+
+dt.cashier+dd>form>label{margin-left:185px}
+dt.cashier+dd>form p.skill{padding:5px 1em 0 12em;line-height:2em;text-indent:0;font-size:10.5pt}
+
+dt.prepaid+dd>form>div{background:url(../images/paid/cards.png) no-repeat 48px 7px}
+dt.prepaid+dd>form>label{margin-left:85px}
+dt.prepaid+dd>form>input+label{margin-left:18px}
+dt.prepaid+dd>form input[type=radio]{margin:13.5px 143px 13.5px 27px}
+
+dt.transfer+dd>form input[type=radio]{margin-left:8px}
+dt.transfer+dd>form>input[type=radio]+label[for=type]{width:auto;margin-left:1px}
+dt.transfer+dd>form>select{width:145px;height:27px;line-height:27px\9;margin:12px 0;margin-right:8px;color:#000;background:#b2b2b2}
+dt.transfer+dd>form>label{margin-left:25px}
+dt.transfer+dd p.skill{padding:5px 1em 0;line-height:2em;text-indent:0;font-size:10.5pt}
+dt.transfer+dd p.tips{color:yellow}
+
+select[name=bnk]+a{display:none;color:yellow}
+table.bank{display:none;position:absolute;left:46.8%;top:28%;line-height:1.8em}
+table.bank td:nth-child(2n+1){color:#fff}
+table.bank td:nth-child(2n){color:yellow}
+table.bank input{font-size:inherit;color:inherit;background-image:none}
+table.bank button[type=button]{font-size:inherit;color:inherit;background-image:none}
+
+dt.mobipay+dd>form>div{width:270px;height:35px;margin:-24px 0 0 160px;background:url(../images/paid/paymant.png) no-repeat right}
+dt.mobipay+dd>form input[type=radio]{margin:9px 109px 9px 9px}
+dt.mobipay+dd p.msg{font-size:14px;margin:10px 8px;}
+dt.mobipay+dd p.msg>b{color:red}
+dt.mobipay+dd p.img{line-height:275px;text-align:center}
+dt.mobipay+dd p.img>img{max-height:275px}
+/*dt.mobipay+dd p.img>.alipay{display:none}*/
+dt.mobipay+dd>form>a{display:block;width:120px;margin-left:323px;line-height:28px;text-align:center;font-size:10pt;text-decoration:none;color:#2d1b19;background:url(../images/paid/btn.png) no-repeat left;background-size:240px 28px}
+dt.mobipay+dd>form a:hover{background-position:right}
+
+dt.mobipay+dd .modal{display:none;width:446px;height:376px;position:fixed;top:109px;margin:0 160px;overflow:hidden;border:2px solid #e1e1e1;box-shadow:0 0 10px 0 rgba(0,0,0,.15);background:url(../images/paid/title.jpg) repeat-x top #e1e1e1}
+dt.mobipay+dd .modal>h3{margin:0 0 42px;padding:8px 12px;line-height:26px;color:white}
+dt.mobipay+dd .modal>label{padding-left:35px;color:#000}
+dt.mobipay+dd .modal>select{width:187px;height:27px;line-height:27px\9;margin:8px 0;background:url(../images/t.png) no-repeat #1c0b02}
+/*dt.mobipay+dd .modal>select option[selected]{color:#fff}*/
+dt.mobipay+dd .modal>input[name=sum]+label{display:block;text-align:center}
+dt.mobipay+dd .modal>input[type=submit]{display:block;margin:24px auto}
+dt.mobipay+dd .modal>a:last-child{position:absolute;top:0;right:0;padding:5px}
+
+dt.qrpay+dd>form>div{width:290px;height:35px;margin:-24px 0 0 160px;white-space:nowrap;background:url(../images/paid/paymant2.png) no-repeat 35px 0}
+dt.qrpay+dd>form input[type=radio]{margin:9px 109px 9px 9px}
+dt.qrpay+dd p.skill{padding:5px 1em 0;line-height:2em;text-indent:0;font-size:10.5pt}
+dt.qrpay+dd p.img>img{max-height:275px}

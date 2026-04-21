@@ -1,0 +1,52 @@
+﻿<!--[if !IE]>--><!DOCTYPE html><!--<![endif]-->
+<!--[if gte IE 8]><!DOCTYPE html><![endif]-->
+<!--[if lt IE 8]><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"><![endif]-->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>活动详情 - 豪门世纪星</title>
+  <style>
+html,body{height:100%}
+body{margin:0;padding:0;-ms-overflow-style:-ms-autohiding-scrollbar/*;background:#052530*/}
+body>div{height:100%;margin:auto 0;overflow-x:hidden;overflow-y:scroll}
+body>div img{max-width:100%;border:none}
+body>textarea{display:none}
+a{outline:none}
+  </style>
+</head>
+<body scroll="no">
+  <div></div>
+  <textarea></textarea>
+  <script src="./scripts/jquery.js"></script>
+  <script>
+    var url=location.protocol.indexOf("http")?"http://www.ifeng7777.com:8087/WS/Validate.ashx/News":"/WS/Validate.ashx/News";
+    $.support.cors=true;
+
+    var nid=location.search.substring(1).split('/').pop();
+    switch(nid){
+      case "more":
+        $("body>div").html('<div style="width:980px;height:984px;position:relative;background:url(images/promo/more.jpg) no-repeat"><a href="https://www.ifeng7777.com/Activity" style="position:absolute;margin:528px 0 0 178px"><img src="images/promo/mbtn.png" /></a></div>');
+        break;
+      case "Spreader":
+        $("body>div").html('<div style="width:1008px;margin-left:80px;height:1791px;background:url(https://www.ifeng7777.com/images/spreader1.jpg) no-repeat"><img src="https://www.ifeng7777.com/images/SpreaderGold.png" style="margin:1453px 0 0 951px;position:absolute"><img src="https://www.ifeng7777.com/images/SpreaderGold2.png" style="margin:1181px 0 0 -109px;position:absolute"></div><div style="height:141px;background:url(https://www.ifeng7777.com/images/SpreaderGolds.png) center no-repeat;margin-top:-29px"></div>').css({width:"1157px"});
+        break;
+      default:
+        if(isNaN(nid)) break;
+        $.ajax({
+          contentType:"application/json;charset=utf-8",
+          url:url,
+          type:"POST",
+          crossDomain:true,
+          dataType:"json",
+          data:nid+"",
+          success:function(e){
+            if(e.s) alert(e.m);
+            else $("body>div").html(e.body);
+          }
+        });
+    }
+  </script>
+</body>
+</html>

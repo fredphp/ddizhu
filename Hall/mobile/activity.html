@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>活动详情 - 豪门世纪星</title>
+  <style>
+html,body{height:100%}
+body{margin:0;padding:0;-ms-overflow-style:-ms-autohiding-scrollbar/*;background:#052530*/}
+body>div{height:100%;margin:auto 0;overflow-x:hidden;overflow-y:scroll}
+body>div img{max-width:100%;border:none}
+a{outline:none}
+  </style>
+</head>
+<body scroll="no">
+    <button style="width:105px;height:45px;position:fixed;top:6px;right:6px;border:none;z-index:+9;background:url('images/close.png') no-repeat;background-size:105px 45px" onclick="CloseWindow()"></button>
+  <div></div>
+  <script src="js/jquery.js"></script>
+  <script>
+    var mco=$("body>div"),url=location.protocol.indexOf("http")?"http://hall.ifeng7777.com:8087/WS/Validate.ashx/News":"/WS/Validate.ashx/News";
+    $.support.cors=true;
+
+    var nid=location.search.substring(1).split('/').pop();
+    switch(nid){
+      case "more":
+        mco.html('<div style="width:980px;height:984px;position:relative;background:url(images/promo/more.jpg) no-repeat"><a href="https://www.ifeng7777.com/Activity" style="position:absolute;margin:528px 0 0 178px"><img src="images/promo/mbtn.png" /></a></div>');
+        break;
+      case "Spreader":
+        mco.html('<div style="width:1008px;margin-left:80px;height:1791px;background:url(https://www.ifeng7777.com/images/spreader1.jpg) no-repeat"><img src="https://www.ifeng7777.com/images/SpreaderGold.png" style="margin:1453px 0 0 951px;position:absolute"><img src="https://www.ifeng7777.com/images/SpreaderGold2.png" style="margin:1181px 0 0 -109px;position:absolute"></div><div style="height:141px;background:url(https://www.ifeng7777.com/images/SpreaderGolds.png) center no-repeat;margin-top:-29px"></div>').css({width:"1157px"});
+        break;
+      default:
+        if(isNaN(nid)) break;
+        $.ajax({
+          contentType:"application/json;charset=utf-8",
+          url:url,
+          type:"POST",
+          crossDomain:true,
+          dataType:"json",
+          data:nid+"",
+          success:function(e){e.s?alert(e.m):mco.html(e.body)}
+        });
+    }
+  </script>
+</body>
+</html>

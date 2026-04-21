@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=766"/>
+  <script>if(!/iPad|iPhone|iPod/.test(navigator.platform)) document.querySelector("meta[name=viewport]").content="width=device-width, initial-scale="+window.screen.width/766</script>
+  <title>支付中心 - 豪门世纪星</title>
+  <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="css/paid.css" />
+</head>
+<body>
+    <button style="width:105px;height:45px;position:fixed;top:6px;right:6px;border:none;z-index:+9;background:url('images/close.png') no-repeat;background-size:105px 45px" onclick="CloseWindow()"></button>
+  <dl>
+    <dt class="qrpay Home"><a href="./paid.html?qrpay"></a></dt>
+    <dd>
+      <div class="tips">温馨提示：请确保您填写的用户名正确无误，因输入错误而导致的任何损失由玩家自行承担。</div>
+      <form>
+        <p>请选择支付方式：</p>
+        <div><input type="radio" name="payment" value="Alipay" checked><input type="radio" name="payment" value="WeChat"><input style="display:none" type="radio" name="payment" value="Alipay2"></div>
+        <label for="usr">游戏账号：</label><input name="usr" required /><label for="reu">确认账号：</label><input name="reu" required /><br />
+        <label for="sum">充值金额：</label><input name="sum" type="number" required /><label for="sum">*最低金额20.00，微信最高8000.00，支付宝最高3000.00</label>
+        <p class="skill">充值过程中，浏览器会跳转至支付页面。请于支付成功后查看您的金库点数<br />
+        如未充值成功，或已充值未添加点数，请联系客服中心</p>
+          <input type="submit" value="确定充值" />
+      </form>
+    </dd>
+      <dt class="netbank"><a href="./paid.html?netbank"></a></dt>
+      <dd>
+          <div class="tips">温馨提示：请确保您填写的用户名正确无误，因输入错误而导致的任何损失由玩家自行承担。</div>
+          <form>
+              <p>请选择银行：</p>
+              <div>
+                  <input type="radio" name="bank" value="BOC" title="中信银行" />
+                  <input type="radio" name="bank" value="CCB" title="建设银行" />
+                  <input type="radio" name="bank" value="CMBC" title="民生银行" />
+                  <input type="radio" name="bank" value="ICBC" title="工商银行" />
+
+                  <input type="radio" name="bank" value="CMB" title="招商银行" />
+                  <input type="radio" name="bank" value="BOCO" title="交通银行">
+                  <input type="radio" name="bank" value="ABC" title="农业银行">
+                  <input type="radio" name="bank" value="CEB" title="光大银行">
+
+                  <input type="radio" name="bank" value="PINGANBANK" title="平安银行">
+                  <input type="radio" name="bank" value="CIB" title="兴业银行">
+                  <input type="radio" name="bank" value="PSBS" title="邮政储蓄">
+                  <input type="radio" name="bank" value="SPDB" title="浦发银行">
+
+                  <input type="radio" name="bank" value="GDB" title="广发银行">
+                  <input type="radio" name="bank" value="CTTIC" title="中信银行">
+                  <input type="radio" name="bank" value="HKBEA" title="东亚银行">
+              </div>
+              <label for="usr">游戏账号：</label><input name="usr" /><br />
+              <label for="reu">确认账号：</label><input name="reu" /><br />
+              <label for="sum">充值金额：</label><input name="sum" type="number" /><label for="sum">最低金额100.00</label><br />
+              <input type="submit" value="确定充值" />
+          </form>
+      </dd>
+  </dl>
+
+  <div class="msg"><div></div><button type="button">关闭</button></div>
+
+  <iframe name="pay"></iframe>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/shared.js"></script>
+  <script>
+    $("dt.mobipay+dd>form>a").on("click",function(){if($("input[name=payment]").is(":checked")) $(".modal").show();else $(".msg").show().find(">div").html("请您先选择支付方式！")});
+    $(".modal>input[type=submit]").on("click",function(){$(this).parent().hide("slow")});
+    $(function(){setTimeout(getInfo,500)});
+//$("input[value=Alipay]").on("click",function(){$(".msg").show().find(">div").html("支付宝通道暂时关闭，请您选择其它支付方式！")});
+  </script>
+</body>
+</html>

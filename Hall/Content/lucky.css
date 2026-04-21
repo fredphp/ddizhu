@@ -1,0 +1,42 @@
+﻿body>dl{background:url(../images/bg.png) no-repeat 50% 0;background-size:766px 508px}
+body>dl>dt{height:0;visibility:hidden}
+body>dl>dd{height:490px;padding-top:18px;background:url(../images/t.png) no-repeat 50% bottom/*;background-size:766px 62px*/}
+
+dt.item+dd>a,dt.disp+dd>a{display:block;width:86px;height:18px;position:absolute;bottom:20px;right:20px;background:url(../images/record.png) no-repeat left}
+dt.list+dd>a{display:block;width:128px;height:52px;position:absolute;bottom:2px;left:-64px;margin:0 50%;background:url(../images/backto.png) no-repeat left}
+dt+dd>a:hover{background-position:right}
+
+dt.disp+dd{height:508px;padding-top:0}
+dt.disp+dd>ul{height:417px;margin:0 auto;padding:14px 0;overflow:hidden}
+dt.disp+dd>ul:hover{overflow:auto}
+dt.disp+dd li{display:inline-block;width:182px;height:202px;position:relative;margin:4px 28px;text-align:center;font-size:10.5pt;color:#c1913c;background:url(../images/lucky/hb.png) no-repeat}
+.hbl>img{display:none;position:absolute;left:0;margin:-10px 0 0 -10px}
+.hbl>b{display:block;padding-left:10px;line-height:29px;color:#f6e3a9}
+.hbl>hr{margin:94px 0 0;border:none}
+.hbl>button{width:129px;height:46px;background:url(../images/lucky/yettocome.png) no-repeat}
+.hbl>button.outdated{background-image:url(../images/lucky/outdated.png)}
+.hbl>button.exhausted{background-image:url(../images/lucky/exhausted.png)}
+.hbl>button.collected{background-image:url(../images/lucky/collected.png)}
+.hbl>button.yettocome{background-image:url(../images/lucky/yettocome.png)}
+.hbl>button.grabmoney{background-image:url(../images/lucky/grabmoney.png)}
+.hbl>button:hover{background-position:right}
+.new>img{display:block}
+
+.hbl>div{display:none;width:213px;height:140px;position:absolute;padding-left:12px;line-height:1.3em;z-index:+1;text-align:left;white-space:nowrap;color:#fff;background:url(../images/lucky/float.png) no-repeat}
+.hbl:hover>div{display:block}
+.hbl>div>b{display:block;margin-left:-12px;padding:8px 12px 0 0;text-align:center;color:#cfdb00}
+
+ul.list{width:733px;height:380px;margin:0 auto;padding:0;list-style:none;overflow-x:hidden;overflow-y:hidden}
+ul.list:hover{overflow-y:auto}
+h3.list,ul.list>li{width:733px;height:30px\9;line-height:30px;white-space:nowrap;color:#fff;background:url(../images/lucky/line.png) no-repeat 50% bottom}
+ul.list>li>span{display:inline-block;text-align:center;font-size:10.5pt}
+
+ul.list>li>span:first-child,
+ul.list>li>span:first-of-type,
+h3.list>span:first-of-type{width:133px}
+ul.list>li>span:nth-of-type(2),
+h3.list>span:nth-of-type(2){width:242px}
+ul.list>li>span:nth-of-type(3),
+h3.list>span:nth-of-type(3){width:152px}
+ul.list>li>span:nth-of-type(4),
+h3.list>span:nth-of-type(4){width:206px}

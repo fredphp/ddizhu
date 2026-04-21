@@ -1,0 +1,132 @@
+﻿*{padding:0; margin:0; list-style:none;}
+body
+{
+    background: #25031b none repeat scroll 0 0;
+}
+#regin-top {
+    background:  url("/Images/Register/register.png") no-repeat scroll 0 0;
+    float: left;
+    height: 130px;
+    margin-top: 15px;
+    width: 248px;
+}
+#regmian {
+    float:left;
+    clear:left;
+    margin-top:20px;
+}
+.spancon
+{
+    min-height:35px;
+    display:block;
+}
+.lbreg {
+    color: #e0ad13;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    height: 20px;
+    line-height: 20px;
+    margin: 9px 10px 0 0;
+    text-align: right;
+    width: 200px;
+    background:url('/Images/register/zi.png') no-repeat;
+}
+.lbreg1 {
+    color: #e0ad13;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    height: 20px;
+    line-height: 20px;
+    margin: 9px 10px 0 0;
+    text-align: right;
+    width: 200px;
+}
+
+.textreg {
+    background:url('/images/register/dk.png') no-repeat;
+    /*background-color: #721e5a;*/
+    border: 0 solid red;
+    color: White;
+    font-weight: bold;
+    height: 40px;
+    width: 301px;
+    text-indent:7px;
+}
+.textreg1 {
+    border:1px solid #631a22;
+    border-radius:15px;
+    background-color: #130000;
+    resize:none;
+    color: White;
+    font-weight: bold;
+    height: 40px;
+    width: 301px;
+    text-indent:7px;
+}
+
+.textvalidate {
+    background:url('/images/register/dk.png') no-repeat;
+    /*background-color: #721e5a;*/
+    border: 0 solid red;
+    color: White;
+    display: block;
+    float: left;
+    font-weight: bold;
+    height: 40px;
+    margin-left: 0;
+    width: 301px;
+    text-indent:7px;
+}
+
+#regin-bottom {
+    height: 80px;
+    margin: 0 auto;
+    width: 1000px;
+    float:left;
+    clear:left;
+}
+
+.btnAffirm {
+    background:  url("/Images/Register/img.png") no-repeat scroll 0 0;
+    border: 0 none;
+    cursor: pointer;
+    display: inline;
+    height: 52px;
+    margin: 20px 0 0 280px;
+    padding: 0;
+    vertical-align: middle;
+    width: 169px;
+}
+    .btnAffirm:hover {
+        background-position:0 100%;    
+    }
+.btnReset {
+    background:  url("/Images/Register/btnReset.jpg") no-repeat scroll 0 0;
+    border: 0 none;
+    cursor: pointer;
+    display: inline;
+    height: 32px;
+    margin: 20px 0 0 50px;
+    padding: 0;
+    vertical-align: middle;
+    width: 106px;
+}
+
+.konError {
+    color: White;
+    height: 14px;
+    line-height: 14px;
+    width: 240px;
+}
+.onError {
+    color: Red;
+    height: 14px;
+    line-height: 14px;
+}
+.onSuccess {
+    color: Green;
+    height: 14px;
+    line-height: 14px;
+}

@@ -1,0 +1,107 @@
+﻿*{padding:0; margin:0; list-style:none;}
+@font-face
+{
+    font-family:mycustomFont;
+    src:url("/Images/font/font1.ttf")
+}
+body
+{
+    background: #25031b none repeat scroll 0 0;
+}
+
+#gamelist-contentbottom {
+    min-height: 640px;
+    width: 1000px;
+    position:relative;
+    float:left;
+    left:50%;
+    margin-left:-500px;
+    display:block;
+}
+
+#gamelist-contentbottom .gamelistbox {
+    float: left;
+    height: 200px;
+    margin: 5px 11px 11px;
+    width: 311px;
+    position:relative;
+    top: 0px;
+    left: 0px;
+}
+
+#gamelist-contentbottom .gamelistbox .gamelistbg
+{
+    cursor:pointer;
+    z-index:2;
+    position:absolute;
+    left:0;
+    top:0;
+    width:302px;
+    height:188px;
+    background:url("/Images/gamelistbg.png") no-repeat 0 0;
+}
+
+#gamelist-contentbottom .gamelistbox .gameName
+{
+    float:left;
+    width:250px;
+    height:35px;
+    margin-top:6px;
+    line-height:35px;
+    margin-left:55px;
+    overflow:hidden;
+    color:rgb(214,212,213);
+    font-weight:bold;
+    font-size:20px;
+    font-family:"mycustomFont","华文行楷";
+}
+#gamelist-contentbottom .gamelistbox .gamelistimg
+{
+    float:left;
+    width:279px;
+    height:141px;
+    margin-top:42px;
+    margin-left:16px;
+    z-index:1;
+}
+#gamelist-contentbottom .gamelistbox .gamelistName
+{
+    float:left;
+    clear:left;
+    position:absolute;
+    bottom:14px;
+    left:16px;
+    width:279px;
+    height:30px;
+    line-height:30px;
+    font-size:16px;
+    font-weight:bolder;
+    text-align:center;
+    cursor:pointer;
+}
+#gamelist-contentbottom .gamelistbox .gamelistName a
+{
+    display:block;
+    float:left;
+    width:100%;
+    height:100%;
+    color:#535353;
+    text-decoration:none;
+}
+#gamelist-contentbottom .gamelistbox .gamelistName a:hover
+{
+    display:block;
+    float:left;
+    width:100%;
+    height:100%;
+    color:#f00;
+    text-decoration:none;
+}
+#regin-top {
+    background:  url("/Images/GameList/yxjs.png") no-repeat scroll 0 0;
+    float: left;
+    height: 130px;
+    margin-top: 60px;
+    width: 100%;
+    margin-left:60px;
+}

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>抢红包 - 豪门世纪星</title>
+  <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="css/lucky.css" />
+</head>
+<body scroll="no">
+    <button style="width:105px;height:45px;position:fixed;top:0px;right:6px;border:none;z-index:+9;background:url('images/close.png') no-repeat;background-size:105px 45px" onclick="CloseWindow()"></button>
+  <dl>
+    <dt class="disp Home"><a href="./lucky.html?disp"></a></dt>
+    <dd><ul class="disp"></ul>
+      <a href="./lucky.html?list"></a></dd>
+    <dt class="list"><a href="./lucky.html?list"></a></dt>
+    <dd>
+      <h3 class="list"><span><img src="images/head/zh.png" /></span><span><img src="images/head/zt.png" /></span><span><img src="images/head/hd.png" /></span><span><img src="images/head/lq.png" /></span></h3>
+      <ul class="list"><li>没有找到记录！</li></ul>
+      <a href="./lucky.html?disp"></a>
+    </dd>
+    <dt class="item"><a href="./lucky.html?item"></a></dt>
+    <dd>
+      <ul class="item"></ul>
+      <a href="./lucky.html?list"></a>
+    </dd>
+    <!--<dt class="last"><a href="/lucky.html?last"></a></dt><dd></dd>-->
+  </dl>
+  <div class="msg"><div></div><button type="button">关闭</button></div>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/shared.js"></script>
+  <script>$(function(){setTimeout(getGifts,500)})</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+﻿*{padding:0; margin:0; list-style:none;}
+#ContextTopbox
+{
+    height:250px;
+    background: #25031b none repeat scroll 0 0;
+}
+.Context-top {
+    background: #28082f none repeat scroll 0 0;
+    height: 124px;
+}
+.register-top {
+    background:  url("/Images/Other/registertop.jpg") no-repeat scroll 0 0;
+    height: 124px;
+    margin: 0 auto;
+    width: 1000px;
+    display:none;
+}
+.download-top {
+    background:  url("/Images/Other/downloadtop.jpg") no-repeat scroll 0 0;
+    height: 124px;
+    margin: 0 auto;
+    width: 1000px;
+    display:none;
+}
+.gamelist-top {
+    background:  url("/Images/Other/gamelisttop.jpg") no-repeat scroll 0 0;
+    height: 124px;
+    margin: 0 auto;
+    width: 1000px;
+    display:none;
+}
+.about-top {
+    background:  url("/Images/Other/sportstop.jpg") no-repeat scroll 0 0;
+    height: 124px;
+    margin: 0 auto;
+    width: 1000px;
+    display:none;
+}
+.contact-top {
+    background:  url("/Images/Other/activitytop.jpg") no-repeat scroll 0 0;
+    height: 124px;
+    margin: 0 auto;
+    width: 1000px;
+    display:none;
+}
+.Contexttop {
+    background:  url("/Images/Other/rollnew.png") no-repeat scroll 0 0;
+    height: 49px;
+    margin: 0 auto;
+    width: 1000px;
+}
+.Contextmiddle {
+    background:  url("/Images/Other/welcome.png") no-repeat scroll 0 0;
+    height: 70px;
+    margin: 0 auto;
+    width: 1000px;
+}
+.spwelcome {
+    color: #ffe41e;
+    display: block;
+    font-size: 16px;
+    font-weight: bolder;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+.marqee
+{
+    height:30px;
+    color: #42d9fd;
+    line-height:30px;
+    font-size: 14px;
+    margin-left: 90px;
+    margin-right: 20px;
+    padding-top:10px;
+}

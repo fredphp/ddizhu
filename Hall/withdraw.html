@@ -1,0 +1,87 @@
+﻿<!--[if !IE]>--><!DOCTYPE html>
+<!--<![endif]-->
+<!--[if gte IE 8]><!DOCTYPE html><![endif]-->
+<!--[if lt IE 8]><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"><![endif]-->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>兑换中心 - 豪门世纪星</title>
+  <link rel="stylesheet" href="content/shared.css" />
+  <link rel="stylesheet" href="content/withdraw.css" />
+</head>
+<body scroll="no">
+  <dl>
+    <dt class="convert Home"><a href="/withdraw.html?convert"></a></dt>
+    <dd>
+      <form>
+        <div step="1">
+          <span class="sum"></span>
+          <span></span><br />
+          <hr />
+          <input name="sum" step="any" type="number" placeholder="兑换金额" required /><input name="way" placeholder="转账方式" value="银行" /><br />
+          <input name="acc" placeholder="银行账号" required /><input name="rea" placeholder="确认账号" required /><br />
+          <input name="bnk" placeholder="银行名称" /><input name="usr" placeholder="开户姓名" /><br />
+          <textarea name="loc" placeholder="银行所在地"></textarea>
+          <p class="tips">温馨提示：一天只能兑换5次，最低兑换金额50.00，每笔需收取1%服务费（每日首笔免收服务费）。<br>豪门世纪星游戏平台禁止多账号注册，如发现多账号注册将永久冻结相关账号并不予兑换。</p>
+
+        </div>
+        <div step="2">
+          <span class="acc"></span><br />
+          <span class="bnk"></span><br />
+          <span class="usr"></span><br />
+          <span class="loc"></span><br />
+          <span class="sum"></span><br />
+          <span class="req"></span><br />
+          <hr />
+          <input name="pwd" type="password" placeholder="登录密码" /><br />
+          <input name="ips" type="password" placeholder="金库密码" />
+        </div>
+        <div step="3">
+          <span></span><br />
+          <span></span><br />
+          <span></span><br />
+        </div>
+        <button></button>
+      </form>
+      <div class="nav"><button class="edit step2"></button><button class="next step1 step2" href="/withdraw.html?next"></button></div>
+    </dd>
+  </dl>
+
+  <div class="info modal">
+    <h2>更新用户资料</h2>
+    <form>
+       QQ 号码：<input name="qqnum" type="text" placeholder="QQ号码" /><br />
+      <!--电子邮箱：<input name="email" type="email" placeholder="电子邮箱" /><br />-->
+      联系电话：<input name="phone" type="tel" placeholder="联系电话" /><br />
+      <button></button>
+    </form>
+    <a class="cls" title="关闭" href="javascript:void(0)"><img src="images/match/queding.jpg"></a>
+    <a title="关闭" href="javascript:void(0)"><img src="images/match/close.jpg"></a>
+  </div>
+
+  <div class="msg"><div></div><button type="button">关闭</button></div>
+  <textarea></textarea>
+
+  <script src="scripts/datepicker.js"></script>
+  <script src="scripts/modernizr.js"></script>
+  <script src="scripts/jquery.js"></script>
+  <!--[if IE]><script src="scripts/jquery.history.js"></script><![endif]-->
+  <!--[if lt IE 9]><script src="scripts/selectivizr.js"></script><script>$(document).ajaxSuccess(function(){$("[class^='slvzr-']").removeClass(function(i,c){return (c.match(/(^|\s)slvzr-\S+/g)||[]).join(' ')});Selectivizr.init()})</script><![endif]-->
+  <script src="scripts/shared.js"></script>
+  <script>
+    var step=1,tax=0;
+    var toggle=function(){
+      if(step==1){$('textarea[name="loc"]').show();getFee();}
+      if(step==2){var sum=$('[step="1"]>[name="sum"]').val();$('[step="2"]>span').text(function(i,v){return this.className=="req"?((sum*(1-tax)).toFixed(2)+" (需要扣除手续费)"):$('[step="1"]>[name='+this.className+']').val()});}
+      $('[step="2"]>input').prop("required",step==2);
+      $('div[step="'+step+'"]').show().siblings().hide();
+      $(".step"+step).css("display","inline-block").siblings(":not(.step"+step+")").hide();
+    };
+    $("button.next").on("click",function(){if(!Modernizr.formvalidation||$("dt.convert+dd>form").get(0).checkValidity()){if(step==2) $("dt.convert+dd>form>button").get(0).click();else step+=1;toggle()}else $(".msg").show().find(">div").html("请提供必要的资料！")});
+    $("button.edit").on("click",function(){step=1;toggle()});
+    $(function(){setTimeout(toggle,1000)});
+  </script>
+</body>
+</html>

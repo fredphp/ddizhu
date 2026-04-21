@@ -1,0 +1,57 @@
+【 2017-11-01 14:15:57 】查询IP异常
+【 2017-11-01 14:16:04 】查询IP异常
+【 2017-11-01 14:16:09 】查询IP异常
+【 2017-11-01 14:16:14 】查询IP异常
+【 2017-11-01 14:16:19 】查询IP异常
+【 2017-11-01 14:16:24 】查询IP异常
+【 2017-11-01 14:16:45 】ID登录异常: dwUserID=548825,strPassword=E6E1D4A963FA4AD6A74C1E7EE88F47D1,strMachineID=
+【 2017-11-01 14:16:50 】ID登录异常: dwUserID=547693,strPassword=E6E1D4A963FA4AD6A74C1E7EE88F47D1,strMachineID=
+【 2017-11-01 14:16:55 】ID登录异常: dwUserID=548044,strPassword=E6E1D4A963FA4AD6A74C1E7EE88F47D1,strMachineID=
+【 2017-11-01 14:17:00 】ID登录异常: dwUserID=548325,strPassword=E6E1D4A963FA4AD6A74C1E7EE88F47D1,strMachineID=
+【 2017-11-01 14:17:05 】ID登录异常: dwUserID=547686,strPassword=E6E1D4A963FA4AD6A74C1E7EE88F47D1,strMachineID=
+【 2017-11-01 14:17:10 】ID登录异常: dwUserID=548318,strPassword=E6E1D4A963FA4AD6A74C1E7EE88F47D1,strMachineID=
+【 2017-11-01 23:13:54 】ID登录异常: dwUserID=548184,strPassword=8E668B463D964F9EB4559E740119199A,strMachineID=
+【 2017-11-01 23:13:59 】ID登录异常: dwUserID=548553,strPassword=8E668B463D964F9EB4559E740119199A,strMachineID=
+【 2017-11-01 23:14:04 】ID登录异常: dwUserID=547686,strPassword=8E668B463D964F9EB4559E740119199A,strMachineID=
+【 2017-11-01 23:14:09 】ID登录异常: dwUserID=548453,strPassword=8E668B463D964F9EB4559E740119199A,strMachineID=
+【 2017-11-01 23:14:14 】ID登录异常: dwUserID=547693,strPassword=8E668B463D964F9EB4559E740119199A,strMachineID=
+【 2017-11-01 23:14:19 】ID登录异常: dwUserID=548379,strPassword=8E668B463D964F9EB4559E740119199A,strMachineID=
+【 2017-11-01 23:14:24 】离开房间异常: dwUserID=547309,dwOnLineTimeCount=35,dwInoutIndex=8585383,dwLeaveReason=0,lRecordScore=0.00,lRecordInsure0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0,lVariationScore=0.00,lVariationInsure=0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0
+【 2017-11-01 23:14:29 】离开房间异常: dwUserID=547367,dwOnLineTimeCount=45,dwInoutIndex=8585376,dwLeaveReason=0,lRecordScore=0.00,lRecordInsure0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0,lVariationScore=0.00,lVariationInsure=0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0
+【 2017-11-01 23:14:34 】离开房间异常: dwUserID=548044,dwOnLineTimeCount=61,dwInoutIndex=8585358,dwLeaveReason=0,lRecordScore=0.00,lRecordInsure0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0,lVariationScore=0.00,lVariationInsure=0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0
+【 2017-11-01 23:14:39 】离开房间异常: dwUserID=548318,dwOnLineTimeCount=1853,dwInoutIndex=8585160,dwLeaveReason=0,lRecordScore=0.00,lRecordInsure0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0,lVariationScore=0.00,lVariationInsure=0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0
+【 2017-11-01 23:14:44 】离开房间异常: dwUserID=548328,dwOnLineTimeCount=81,dwInoutIndex=8585335,dwLeaveReason=0,lRecordScore=0.00,lRecordInsure0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0,lVariationScore=0.00,lVariationInsure=0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0
+【 2017-11-01 23:14:49 】离开房间异常: dwUserID=548450,dwOnLineTimeCount=1868,dwInoutIndex=8585154,dwLeaveReason=0,lRecordScore=0.00,lRecordInsure0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0,lVariationScore=0.00,lVariationInsure=0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0
+【 2017-11-01 23:14:54 】离开房间异常: dwUserID=548697,dwOnLineTimeCount=76,dwInoutIndex=8585367,dwLeaveReason=0,lRecordScore=0.00,lRecordInsure0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0,lVariationScore=0.00,lVariationInsure=0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0
+【 2017-11-02 00:47:35 】ID登录异常: dwUserID=547309,strPassword=4A0EF5809C5249AD9D1C9C4E5DEE11D0,strMachineID=
+【 2017-11-02 00:47:40 】ID登录异常: dwUserID=548318,strPassword=4A0EF5809C5249AD9D1C9C4E5DEE11D0,strMachineID=
+【 2017-11-02 00:47:45 】ID登录异常: dwUserID=548184,strPassword=4A0EF5809C5249AD9D1C9C4E5DEE11D0,strMachineID=
+【 2017-11-02 00:47:50 】ID登录异常: dwUserID=548325,strPassword=4A0EF5809C5249AD9D1C9C4E5DEE11D0,strMachineID=
+【 2017-11-02 00:47:55 】ID登录异常: dwUserID=548328,strPassword=4A0EF5809C5249AD9D1C9C4E5DEE11D0,strMachineID=
+【 2017-11-02 00:48:00 】ID登录异常: dwUserID=547693,strPassword=4A0EF5809C5249AD9D1C9C4E5DEE11D0,strMachineID=
+【 2017-11-02 00:48:05 】ID登录异常: dwUserID=548697,strPassword=4A0EF5809C5249AD9D1C9C4E5DEE11D0,strMachineID=
+【 2017-11-02 00:48:10 】ID登录异常: dwUserID=548044,strPassword=4A0EF5809C5249AD9D1C9C4E5DEE11D0,strMachineID=
+【 2017-11-02 00:48:15 】ID登录异常: dwUserID=548453,strPassword=4A0EF5809C5249AD9D1C9C4E5DEE11D0,strMachineID=
+【 2017-11-02 00:48:21 】ID登录异常: dwUserID=548553,strPassword=4A0EF5809C5249AD9D1C9C4E5DEE11D0,strMachineID=
+【 2017-11-02 00:48:26 】ID登录异常: dwUserID=547367,strPassword=4A0EF5809C5249AD9D1C9C4E5DEE11D0,strMachineID=
+【 2017-11-02 00:48:31 】ID登录异常: dwUserID=547686,strPassword=4A0EF5809C5249AD9D1C9C4E5DEE11D0,strMachineID=
+【 2017-11-04 15:25:25 】离开房间异常: dwUserID=548530,dwOnLineTimeCount=1802,dwInoutIndex=8557938,dwLeaveReason=0,lRecordScore=0.00,lRecordInsure0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0,lVariationScore=0.00,lVariationInsure=0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0
+【 2017-11-04 15:25:55 】ID登录异常: dwUserID=548184,strPassword=46F5B6EABB8947CC82364DFEEE5363AC,strMachineID=
+【 2017-11-04 15:26:00 】ID登录异常: dwUserID=548453,strPassword=46F5B6EABB8947CC82364DFEEE5363AC,strMachineID=
+【 2017-11-04 15:26:05 】ID登录异常: dwUserID=548318,strPassword=46F5B6EABB8947CC82364DFEEE5363AC,strMachineID=
+【 2017-11-04 15:26:10 】ID登录异常: dwUserID=547693,strPassword=46F5B6EABB8947CC82364DFEEE5363AC,strMachineID=
+【 2017-11-04 15:26:15 】ID登录异常: dwUserID=548617,strPassword=46F5B6EABB8947CC82364DFEEE5363AC,strMachineID=
+【 2017-11-04 15:26:21 】ID登录异常: dwUserID=548825,strPassword=46F5B6EABB8947CC82364DFEEE5363AC,strMachineID=
+【 2017-11-04 15:26:26 】ID登录异常: dwUserID=548553,strPassword=46F5B6EABB8947CC82364DFEEE5363AC,strMachineID=
+【 2017-11-04 15:26:31 】ID登录异常: dwUserID=548530,strPassword=46F5B6EABB8947CC82364DFEEE5363AC,strMachineID=
+【 2017-11-04 15:26:36 】ID登录异常: dwUserID=547686,strPassword=46F5B6EABB8947CC82364DFEEE5363AC,strMachineID=
+【 2017-11-04 15:26:41 】ID登录异常: dwUserID=548044,strPassword=46F5B6EABB8947CC82364DFEEE5363AC,strMachineID=
+【 2017-11-04 15:26:46 】ID登录异常: dwUserID=547309,strPassword=46F5B6EABB8947CC82364DFEEE5363AC,strMachineID=
+【 2017-11-04 15:26:51 】ID登录异常: dwUserID=548697,strPassword=46F5B6EABB8947CC82364DFEEE5363AC,strMachineID=
+【 2017-11-04 15:26:56 】ID登录异常: dwUserID=547367,strPassword=46F5B6EABB8947CC82364DFEEE5363AC,strMachineID=
+【 2017-11-04 15:27:01 】ID登录异常: dwUserID=548328,strPassword=46F5B6EABB8947CC82364DFEEE5363AC,strMachineID=
+【 2017-11-04 21:55:06 】离开房间异常: dwUserID=548328,dwOnLineTimeCount=88,dwInoutIndex=8562615,dwLeaveReason=0,lRecordScore=0.00,lRecordInsure0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0,lVariationScore=0.00,lVariationInsure=0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0
+【 2017-11-04 21:55:11 】离开房间异常: dwUserID=548453,dwOnLineTimeCount=83,dwInoutIndex=8562642,dwLeaveReason=0,lRecordScore=0.00,lRecordInsure0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0,lVariationScore=0.00,lVariationInsure=0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0
+【 2017-11-04 21:55:16 】离开房间异常: dwUserID=548553,dwOnLineTimeCount=93,dwInoutIndex=8562629,dwLeaveReason=0,lRecordScore=0.00,lRecordInsure0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0,lVariationScore=0.00,lVariationInsure=0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0
+【 2017-11-04 21:55:22 】离开房间异常: dwUserID=548617,dwOnLineTimeCount=1895,dwInoutIndex=8562310,dwLeaveReason=0,lRecordScore=0.00,lRecordInsure0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0,lVariationScore=0.00,lVariationInsure=0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0
+【 2017-11-04 21:55:27 】离开房间异常: dwUserID=548697,dwOnLineTimeCount=73,dwInoutIndex=8562683,dwLeaveReason=0,lRecordScore=0.00,lRecordInsure0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0,lVariationScore=0.00,lVariationInsure=0.00,lVariationRevenue=0.00,lVariationUserMedal=0.00,lVariationWinCount=0,lVariationLostCount=0,lVariationDrawCount=0,lVariationFleeCount=0,lVariationExperience=0,dwVariationPlayTimeCount=0

@@ -1,0 +1,35 @@
+﻿body>dl>dt.statistics{background-image:url(../images/spread/statistics.png)}
+body>dl>dt.profitable{background-image:url(../images/spread/profitable.png)}
+
+body>dl>dt.statistics+dd{background:url(../images/spread/bg.png) 50% 28px no-repeat}
+body>dl>dt.profitable+dd{background:url(../images/spread/wz.png) 50% 28px no-repeat}
+
+dt.statistics+dd>form{height:40px;line-height:40px;margin-top:13px;font-size:17px}
+dt.statistics+dd>form>input[type=radio]{width:17px;height:17px;margin:0 77px 0 8px;background:url(../images/spread/radio.png) no-repeat left}
+dt.statistics+dd>form>input[type=radio][checked]{background-position:right}
+
+table.statistics,ul.total{display:inline-block;margin:8px;padding:0;vertical-align:middle}
+table.statistics{width:420px;margin-left:48px;line-height:1.8em;text-align:center;color:#fff}
+table.statistics th{width:102.5px;color:#c29039}
+table.statistics tr>td:first-of-type{color:#f9e21a}
+table.statistics tr>td:nth-of-type(3){color:#8de158}
+
+ul.total{width:201px;margin-left:38px;list-style:none;color:#fff}
+ul.total span{display:inline-block;width:100px;line-height:2em;text-align:right;font-weight:bold;color:#c29039}
+
+dt.statistics+dd>form:last-of-type{margin:0;padding-top:48px;text-align:center}
+dt.statistics+dd>form>img{margin-top:2px}
+dt.statistics+dd>form>input[type=number]{width:187px;height:22px;line-height:22px\9;color:#fff;background:url(../images/spread/input.png) no-repeat;background-size:187px 22px}
+dt.statistics+dd button:last-of-type{width:129px;height:46px;background:url(../images/spread/draw.png) no-repeat left}
+
+dt.statistics+dd>a{display:block;width:86px;height:18px;position:absolute;bottom:20px;right:20px;background:url(../images/record.png) no-repeat left}
+dt+dd>a:hover{background-position:right}
+
+dt.profitable+dd{color:#c29039;line-height:2em}
+dt.profitable+dd .copy{width:129px;height:46px;background:url(../images/spread/copy.png) no-repeat left}
+dt.profitable+dd .seto{width:129px;height:46px;background:url(../images/spread/seto.png) no-repeat left}
+dt.profitable+dd p{margin-top:0;padding-top:130px;text-align:center}
+dt.profitable+dd p>span{font-size:24px;color:#e7c19c}
+dt.profitable+dd div{position:relative;margin-left:170px;line-height:3em;font-size:10pt}
+dt.profitable+dd div>input{display:inline-block;width:291px;height:28px;line-height:28px\9;padding-left:6px;color:#fff;background:url(../images/spread/url.png) no-repeat}
+dt.profitable+dd div>button{position:absolute;left:300px;margin-top:-5px}

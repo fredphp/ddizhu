@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RouletteReceive.aspx.cs" Inherits="Game.Web.Roulette.RouletteReceive" %>

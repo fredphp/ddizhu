@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <appSettings>
+    <!-- 应用程序前缀，为Session键值等提供唯一性保证 -->
+    <add key="AppPrefix" value="FLB" />
+    <add key="DBGameWeb" value="Data Source=114.119.116.15,1433; Initial Catalog=QPGameWeb; User ID=sa; Password=QianXi110#@!; Pooling=true" />
+    <add key="DBPlatform" value="Data Source=114.119.116.15,1433; Initial Catalog=QPPlatformDB; User ID=sa; Password=QianXi110#@!; Pooling=true" />
+    <add key="DBAccounts" value="Data Source=114.119.116.15,1433; Initial Catalog=QPAccountsDB; User ID=sa; Password=QianXi110#@!; Pooling=true" />
+    <add key="DBTreasure" value="Data Source=114.119.116.15,1433; Initial Catalog=QPTreasureDB; User ID=sa; Password=QianXi110#@!; Pooling=true" />
+    <add key="DBRecord" value="Data Source=114.119.116.15,1433; Initial Catalog=QPRecordDB; User ID=sa; Password=QianXi110#@!; Pooling=true" />
+    <add key="DBAgency" value="Data Source=114.119.116.15,1433; Initial Catalog=QPAgencyDB; User ID=sa; Password=QianXi110#@!; Pooling=true" />
+    <add key="downloadjb" value="http://www.e07.pw/download/SJXGame.exe" />
+    <add key="downloadfull" value="http://www.e07.pw/download/sjxGameFull.exe" />
+    <add key="downUrl" value="http://download.yongli168.cn:8081/download/XYLUpdate.exe" />
+    <!--1口袋，2成卡，23优卡-->
+    <add key="IdType" value="23" />
+    <!--优卡接口-->
+    <add key="UKaId" value="148" />
+    <add key="UKaSs" value="3eaa675e3795654328bbb" />
+    <add key="UKaBg" value="http://game.7ucard.com/gateway/pay" />
+    <add key="UKaCg" value="http://game.7ucard.com/gateway/CardReceive" />
+    <add key="UKaRe" value="http://hall.ifeng7777.com" />
+    <!--优卡接口-->
+    <!-- 网站头部相关标签配置 -->
+    <add key="keywords" value="军师棋牌,斗地主,同花顺,诈金花,德州扑克,美式八球,深海捕鱼" />
+    <add key="description" value="军师棋牌网囊括了疯狂斗地主,二人麻将,中国象棋,诈金花,同花顺,深海捕鱼,德州扑克等当今最火爆的网游游戏，军师棋牌主办各种专业游戏比赛，如：疯狂斗地主比赛，德州扑克比赛，同花顺比赛，二人麻将比赛，诈金花比赛，深海捕鱼比赛等。琥珀棋牌是沈阳最好的棋牌游戏，中国棋牌游戏平台的领头者。" />
+    <add key="title" value="军师棋牌-中国最大的网络棋牌游戏有限公司" />
+    <!-- 网站头部相关标签配置 -->
+    <!-- Kookie过期时间（分钟）不填则默认为30分钟-->
+    <add key="CookiesExpireMinutes" value="" />
+  </appSettings>
+  <connectionStrings />
+  <!--
+    有关 web.config 更改的说明，请参见 http://go.microsoft.com/fwlink/?LinkId=235367。
+
+    可在 <httpRuntime> 标记上设置以下特性。
+      <system.Web>
+        <httpRuntime targetFramework="4.5.2" />
+      </system.Web>
+  -->
+  <system.web>
+    <!-- 
+            Set compilation debug="true" to insert debugging 
+            symbols into the compiled page. Because this 
+            affects performance, set this value to true only 
+            during development.
+        -->
+    <compilation targetFramework="4.5.2" />
+    <!--
+            The <authentication> section enables configuration 
+            of the security authentication mode used by 
+            ASP.NET to identify an incoming user. 
+        -->
+    <authentication mode="Windows" />
+    <!--
+            The <customErrors> section enables configuration 
+            of what to do if/when an unhandled error occurs 
+            during the execution of a request. Specifically, 
+            it enables developers to configure html error pages 
+            to be displayed in place of a error stack trace.
+
+        <customErrors mode="RemoteOnly" defaultRedirect="GenericErrorPage.htm">
+            <error statusCode="403" redirect="NoAccess.htm" />
+            <error statusCode="404" redirect="FileNotFound.htm" />
+        </customErrors>
+        -->
+    <customErrors mode="Off" defaultRedirect="GenericErrorPage.htm">
+      <error statusCode="403" redirect="NoAccess.htm" />
+      <error statusCode="404" redirect="FileNotFound.htm" />
+    </customErrors>
+    <pages controlRenderingCompatibilityVersion="3.5" clientIDMode="AutoID">
+      <controls>
+        <add tagPrefix="webdiyer" namespace="Wuqi.Webdiyer" assembly="AspNetPager, Version=7.2.0.0, Culture=neutral,   PublicKeyToken=fb0a0fe055d40fd4" />
+        <add tagPrefix="gsp" namespace="Game.Controls" assembly="Game.Controls, Version=4.0.0.0, Culture=neutral,   PublicKeyToken=9e08597ba2e60ff0" />
+      </controls>
+    </pages>
+  </system.web>
+  <!-- 
+        The system.webServer section is required for running ASP.NET AJAX under Internet
+        Information Services 7.0.  It is not necessary for previous version of IIS.
+    -->
+  <system.webServer>
+    <defaultDocument>
+      <files>
+        <add value="index.aspx" />
+      </files>
+    </defaultDocument>
+  </system.webServer>
+</configuration>
+<!--ProjectGuid: {BE4F18C1-783D-4615-B3FB-AF61995DB626}-->
