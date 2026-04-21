@@ -3,9 +3,11 @@
 #######################################################################
 # DDizhu 斗地主棋牌游戏平台 - 一键部署脚本 (WSL 版本)
 # 适用系统：Windows WSL (Windows Subsystem for Linux)
-# 使用方法：./deploy.sh [--force]
+# 使用方法：./deploy.sh [选项]
 # 选项：
-#   --force    强制重新部署，覆盖已存在的文件
+#   --force         强制重新部署，覆盖已存在的文件
+#   --install-sql   自动安装 SQL Server Express（需要管理员权限）
+#   --status        仅检查部署状态
 #######################################################################
 
 set -e
@@ -33,6 +35,19 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # 强制模式
 FORCE_MODE=false
+INSTALL_SQL=false
+
+# 数据库列表
+DATABASES=(
+    "QPGameWeb"
+    "QPPlatformDB"
+    "QPAccountsDB"
+    "QPTreasureDB"
+    "QPRecordDB"
+    "QPAgencyDB"
+    "QPOtherWebDB"
+    "QPGameMatchDB"
+)
 
 # 打印函数
 print_info() {
@@ -77,6 +92,150 @@ check_wsl() {
     else
         print_success "Windows 互操作性已启用"
     fi
+}
+
+# 检查 SQL Server 是否已安装
+check_sql_server() {
+    print_info "检查 SQL Server 安装状态..."
+    
+    if command -v powershell.exe &> /dev/null; then
+        # 检查 SQL Server 服务
+        local sql_service=$(powershell.exe -Command "Get-Service -Name 'MSSQL*' -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty Name" 2>/dev/null | tr -d '\r')
+        
+        if [[ -n "$sql_service" ]]; then
+            print_success "SQL Server 已安装: $sql_service"
+            
+            # 检查服务状态
+            local service_status=$(powershell.exe -Command "(Get-Service -Name '$sql_service').Status" 2>/dev/null | tr -d '\r')
+            if [[ "$service_status" == "Running" ]]; then
+                print_success "SQL Server 服务正在运行"
+            else
+                print_warning "SQL Server 服务状态: $service_status"
+                print_info "尝试启动 SQL Server 服务..."
+                powershell.exe -Command "Start-Service -Name '$sql_service'" 2>/dev/null || true
+            fi
+            
+            # 检查端口
+            local port_check=$(powershell.exe -Command "Test-NetConnection -ComputerName localhost -Port 1433 -InformationLevel Quiet -WarningAction SilentlyContinue" 2>/dev/null | tr -d '\r')
+            if [[ "$port_check" == "True" ]]; then
+                print_success "SQL Server 端口 1433 可访问"
+            else
+                print_warning "SQL Server 端口 1433 不可访问，可能需要配置 TCP/IP"
+            fi
+            
+            return 0
+        fi
+    fi
+    
+    print_warning "SQL Server 未安装"
+    return 1
+}
+
+# 安装 SQL Server Express
+install_sql_server() {
+    print_info "准备安装 SQL Server Express..."
+    
+    if command -v powershell.exe &> /dev/null; then
+        # 检查是否已安装 Chocolatey
+        local choco_installed=$(powershell.exe -Command "Get-Command choco -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Name" 2>/dev/null | tr -d '\r')
+        
+        if [[ "$choco_installed" != "choco" ]]; then
+            print_info "安装 Chocolatey 包管理器..."
+            powershell.exe -Command "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" 2>/dev/null
+            
+            if [[ $? -ne 0 ]]; then
+                print_error "Chocolatey 安装失败"
+                print_info "请手动安装 SQL Server Express: https://www.microsoft.com/zh-cn/sql-server/sql-server-downloads"
+                return 1
+            fi
+            print_success "Chocolatey 安装完成"
+        else
+            print_success "Chocolatey 已安装"
+        fi
+        
+        # 使用 Chocolatey 安装 SQL Server Express
+        print_info "正在安装 SQL Server Express (这可能需要几分钟)..."
+        print_info "请耐心等待，不要关闭窗口..."
+        
+        powershell.exe -Command "choco install sql-server-express -y --params='/Quiet /NoRestart /InstanceName=SQLEXPRESS'" 2>/dev/null
+        
+        if [[ $? -eq 0 ]]; then
+            print_success "SQL Server Express 安装完成"
+            
+            # 安装 SQL Server Management Studio (可选)
+            print_info "安装 SQL Server Management Studio..."
+            powershell.exe -Command "choco install sql-server-management-studio -y" 2>/dev/null || print_warning "SSMS 安装跳过"
+            
+            # 启动服务
+            print_info "启动 SQL Server 服务..."
+            powershell.exe -Command "Start-Service -Name 'MSSQL\$SQLEXPRESS'" 2>/dev/null || true
+            
+            # 配置 TCP/IP
+            print_info "配置 TCP/IP 协议..."
+            powershell.exe -Command "
+                Import-Module SQLPS -DisableNameChecking -ErrorAction SilentlyContinue
+                \$wmi = New-Object Microsoft.SqlServer.Management.Smo.Wmi.ManagedComputer
+                \$tcp = \$wmi.GetSmoObject('ManagedComputer[@Name=\'' + \$env:COMPUTERNAME + '\']/ServerInstance[@Name=''SQLEXPRESS'']/ServerProtocol[@Name=''Tcp'']')
+                \$tcp.IsEnabled = \$true
+                \$tcp.Alter()
+                Restart-Service -Name 'MSSQL\$SQLEXPRESS' -Force
+            " 2>/dev/null || print_warning "TCP/IP 配置需要手动完成"
+            
+            print_success "SQL Server Express 安装和配置完成"
+            return 0
+        else
+            print_error "SQL Server Express 安装失败"
+            print_info "请手动下载安装: https://www.microsoft.com/zh-cn/sql-server/sql-server-downloads"
+            return 1
+        fi
+    else
+        print_error "PowerShell 不可用，无法自动安装"
+        print_info "请手动安装 SQL Server Express: https://www.microsoft.com/zh-cn/sql-server/sql-server-downloads"
+        return 1
+    fi
+}
+
+# 检查数据库是否存在
+check_databases() {
+    print_info "检查数据库状态..."
+    
+    if ! check_sql_server; then
+        return 1
+    fi
+    
+    local existing_count=0
+    local missing_count=0
+    
+    echo ""
+    echo -e "${CYAN}[数据库状态]${NC}"
+    
+    for db in "${DATABASES[@]}"; do
+        local exists=$(powershell.exe -Command "
+            try {
+                \$conn = New-Object System.Data.SqlClient.SqlConnection
+                \$conn.ConnectionString = 'Server=localhost;Database=master;Integrated Security=True;'
+                \$conn.Open()
+                \$cmd = \$conn.CreateCommand()
+                \$cmd.CommandText = \"SELECT name FROM sys.databases WHERE name = '$db'\"
+                \$result = \$cmd.ExecuteScalar()
+                \$conn.Close()
+                if (\$result) { 'EXISTS' } else { 'MISSING' }
+            } catch { 'ERROR' }
+        " 2>/dev/null | tr -d '\r')
+        
+        if [[ "$exists" == "EXISTS" ]]; then
+            echo -e "  $db: ${GREEN}已存在${NC}"
+            ((existing_count++))
+        else
+            echo -e "  $db: ${RED}不存在${NC}"
+            ((missing_count++))
+        fi
+    done
+    
+    echo ""
+    print_info "已存在: $existing_count 个, 缺失: $missing_count 个"
+    
+    return 0
 }
 
 # 检查目录是否已存在
@@ -531,7 +690,26 @@ check_deployment_status() {
     echo "=========================================="
     echo ""
     
+    # 检查 SQL Server
+    echo -e "${CYAN}[SQL Server 状态]${NC}"
+    if command -v powershell.exe &> /dev/null; then
+        local sql_service=$(powershell.exe -Command "Get-Service -Name 'MSSQL*' -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty Name" 2>/dev/null | tr -d '\r')
+        if [[ -n "$sql_service" ]]; then
+            local sql_status=$(powershell.exe -Command "(Get-Service -Name '$sql_service').Status" 2>/dev/null | tr -d '\r')
+            if [[ "$sql_status" == "Running" ]]; then
+                echo -e "  SQL Server: ${GREEN}已安装并运行${NC} ($sql_service)"
+            else
+                echo -e "  SQL Server: ${YELLOW}已安装但未运行${NC} ($sql_service)"
+            fi
+        else
+            echo -e "  SQL Server: ${RED}未安装${NC}"
+        fi
+    else
+        echo -e "  SQL Server: ${YELLOW}无法检测${NC}"
+    fi
+    
     # 检查目录
+    echo ""
     echo -e "${CYAN}[目录状态]${NC}"
     if [[ -d "$INSTALL_DIR" ]]; then
         echo -e "  GameServer: ${GREEN}已创建${NC}"
@@ -574,6 +752,36 @@ check_deployment_status() {
         echo -e "  DDizhu 站点: ${GREEN}已配置${NC}"
     else
         echo -e "  DDizhu 站点: ${RED}未配置${NC}"
+    fi
+    
+    # 检查数据库 (如果 SQL Server 可用)
+    if [[ -n "$sql_service" ]] && [[ "$sql_status" == "Running" ]]; then
+        echo ""
+        echo -e "${CYAN}[数据库状态]${NC}"
+        local db_count=0
+        for db in "${DATABASES[@]}"; do
+            local exists=$(powershell.exe -Command "
+                try {
+                    \$conn = New-Object System.Data.SqlClient.SqlConnection
+                    \$conn.ConnectionString = 'Server=localhost;Database=master;Integrated Security=True;'
+                    \$conn.Open()
+                    \$cmd = \$conn.CreateCommand()
+                    \$cmd.CommandText = \"SELECT name FROM sys.databases WHERE name = '$db'\"
+                    \$result = \$cmd.ExecuteScalar()
+                    \$conn.Close()
+                    if (\$result) { 'EXISTS' } else { 'MISSING' }
+                } catch { 'ERROR' }
+            " 2>/dev/null | tr -d '\r')
+            
+            if [[ "$exists" == "EXISTS" ]]; then
+                echo -e "  $db: ${GREEN}已创建${NC}"
+                ((db_count++))
+            else
+                echo -e "  $db: ${RED}未创建${NC}"
+            fi
+        done
+        echo ""
+        print_info "数据库: $db_count/${#DATABASES[@]} 已创建"
     fi
     
     echo ""
@@ -625,14 +833,22 @@ print_help() {
     echo "使用方法: ./deploy.sh [选项]"
     echo ""
     echo "选项："
-    echo "  --force      强制重新部署，覆盖已存在的文件"
-    echo "  --status     仅检查部署状态，不执行部署"
-    echo "  --help       显示帮助信息"
+    echo "  --force         强制重新部署，覆盖已存在的文件"
+    echo "  --install-sql   自动安装 SQL Server Express（需要管理员权限）"
+    echo "  --status        仅检查部署状态，不执行部署"
+    echo "  --check-db      检查数据库状态"
+    echo "  --help          显示帮助信息"
     echo ""
     echo "示例："
-    echo "  ./deploy.sh           # 执行部署（跳过已存在的组件）"
-    echo "  ./deploy.sh --force   # 强制重新部署"
-    echo "  ./deploy.sh --status  # 检查部署状态"
+    echo "  ./deploy.sh              # 执行部署（跳过已存在的组件）"
+    echo "  ./deploy.sh --force      # 强制重新部署"
+    echo "  ./deploy.sh --install-sql # 安装 SQL Server Express"
+    echo "  ./deploy.sh --status     # 检查部署状态"
+    echo "  ./deploy.sh --check-db   # 检查数据库状态"
+    echo ""
+    echo "所需数据库 (8个)："
+    echo "  QPGameWeb, QPPlatformDB, QPAccountsDB, QPTreasureDB"
+    echo "  QPRecordDB, QPAgencyDB, QPOtherWebDB, QPGameMatchDB"
     echo ""
 }
 
@@ -645,9 +861,18 @@ main() {
                 FORCE_MODE=true
                 shift
                 ;;
+            --install-sql)
+                INSTALL_SQL=true
+                shift
+                ;;
             --status)
                 check_wsl
                 check_deployment_status
+                exit 0
+                ;;
+            --check-db)
+                check_wsl
+                check_databases
                 exit 0
                 ;;
             --help|-h)
@@ -669,10 +894,52 @@ main() {
     if [[ "$FORCE_MODE" == "true" ]]; then
         echo -e "  ${RED}强制模式已启用${NC}"
     fi
+    if [[ "$INSTALL_SQL" == "true" ]]; then
+        echo -e "  ${YELLOW}将安装 SQL Server Express${NC}"
+    fi
     echo "=========================================="
     echo ""
     
     check_wsl
+    
+    # 处理 SQL Server 安装
+    if [[ "$INSTALL_SQL" == "true" ]]; then
+        if check_sql_server; then
+            print_skip "SQL Server 已安装，跳过安装"
+        else
+            install_sql_server
+        fi
+    else
+        # 检查 SQL Server 是否已安装
+        if ! check_sql_server; then
+            echo ""
+            print_warning "========================================="
+            print_warning "SQL Server 未安装！"
+            print_warning "========================================="
+            echo ""
+            echo "请选择以下方式之一安装 SQL Server："
+            echo ""
+            echo -e "${YELLOW}方式一：自动安装（推荐）${NC}"
+            echo "  ./deploy.sh --install-sql"
+            echo ""
+            echo -e "${YELLOW}方式二：手动下载安装${NC}"
+            echo "  下载地址: https://www.microsoft.com/zh-cn/sql-server/sql-server-downloads"
+            echo "  推荐版本: SQL Server Express (免费版)"
+            echo ""
+            echo -e "${YELLOW}安装后请重新运行部署脚本${NC}"
+            echo ""
+            read -p "是否继续部署其他组件？(y/N): " continue_deploy
+            if [[ ! "$continue_deploy" =~ ^[Yy]$ ]]; then
+                exit 0
+            fi
+        fi
+    fi
+    
+    # 检查数据库状态
+    if check_sql_server; then
+        check_databases
+    fi
+    
     create_directories
     copy_files
     generate_db_script
