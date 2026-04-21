@@ -206,10 +206,30 @@ ddizhu/
 
 ### 环境要求
 
-1. **操作系统**：Windows Server 2008/2012/2016 或 Windows 7/10
+1. **操作系统**：Windows Server 2008/2012/2016 或 Windows 7/10/11
 2. **Web服务器**：IIS 7.0 及以上
 3. **数据库**：Microsoft SQL Server 2008 R2 及以上
 4. **.NET Framework**：3.5 / 4.0 / 4.5.2（根据模块需求）
+
+### WSL 环境支持
+
+本项目支持在 **Windows WSL (Windows Subsystem for Linux)** 环境中部署和管理：
+
+- 详细的 WSL 部署文档请参考：[docs/deploy.md](docs/deploy.md)
+- 一键部署脚本：`./deploy.sh`
+- 一键启动脚本：`./start.sh`
+
+```bash
+# 在 WSL 中执行
+# 1. 运行部署脚本
+./deploy.sh
+
+# 2. 启动所有服务
+./start.sh --all
+
+# 3. 查看服务状态
+./start.sh --status
+```
 
 ### 部署步骤
 
