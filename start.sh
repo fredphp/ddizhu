@@ -1,13 +1,13 @@
 #!/bin/bash
 
 #######################################################################
-# DDizhu 斗地主棋牌游戏平台 - 一键启动脚本 (WSL 版本)
-# 适用系统：Windows WSL (Windows Subsystem for Linux)
+# DDizhu 斗地主棋牌游戏平台 - 启动脚本 (WSL 版本)
+# 项目运行在 WSL Linux 环境中
 # 使用方法：./start.sh [选项]
 # 选项：
-#   --web      仅启动 Web 服务
-#   --game     仅启动游戏服务器
-#   --all      启动所有服务（默认）
+#   --web      启动 Web 服务
+#   --game     启动游戏服务器（需要 Wine）
+#   --all      启动所有服务
 #   --stop     停止所有服务
 #   --status   查看服务状态
 #   --logs     查看服务日志
@@ -25,10 +25,11 @@ CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 # WSL 路径配置
-SERVER_DIR="/mnt/c/GameServer"
-WEB_DIR="/mnt/c/www/ddizhu"
-LOG_DIR="/mnt/c/GameServer/logs"
-PID_DIR="/mnt/c/GameServer/pids"
+SERVER_DIR="/opt/ddizhu/server"
+WEB_DIR="/opt/ddizhu/www"
+LOG_DIR="/opt/ddizhu/logs"
+CONFIG_DIR="/opt/ddizhu/config"
+PID_DIR="/opt/ddizhu/pids"
 
 # 进程文件
 CENTER_PID="$PID_DIR/center.pid"
@@ -74,11 +75,114 @@ is_win_process_running() {
     return 1
 }
 
-# 检查进程是否运行 (通过 PID 文件)
-is_running() {
-    local pid_file=$1
-    if [[ -f "$pid_file" ]]; then
-        local pid=$(cat "$pid_file")
+# 启动游戏服务器 (需要 Wine 或在 Windows 中运行)
+start_game_server() {
+    print_info "启动游戏服务器..."
+    
+    if [[ ! -d "$SERVER_DIR" ]]; then
+        print_error "服务器目录不存在: $SERVER_DIR"
+        print_info "请先运行 ./deploy.sh 进行部署"
+        return 1
+    fi
+    
+    cd "$SERVER_DIR"
+    
+    # 检查服务器文件
+    if [[ ! -f "Center.exe" ]] && [[ ! -f "GameServer.exe" ]]; then
+        print_warning "服务器可执行文件不存在"
+        print_info "游戏服务器是 Windows 程序，需要通过以下方式运行："
+        echo ""
+        echo "  方式一: 在 Windows 中直接运行"
+        echo "    路径: \\\\wsl$\\<发行版名称>\\opt\\ddizhu\\server\\"
+        echo ""
+        echo "  方式二: 使用 Wine 运行 (需要先安装 Wine)"
+        echo "    sudo apt install wine64"
+        echo "    wine Center.exe"
+        echo ""
+        return 1
+    fi
+    
+    # 检查 Wine
+    if command -v wine &> /dev/null; then
+        print_info "使用 Wine 启动服务器..."
+        
+        # Center
+        if is_center_running; then
+            print_skip "Center 已运行"
+        else
+            print_info "启动 Center..."
+            wine Center.exe > "$LOG_DIR/center.log" 2>&1 &
+            echo $! > "$CENTER_PID"
+            sleep 3
+            print_success "Center 启动完成"
+        fi
+        
+        # Logon
+        if is_logon_running; then
+            print_skip "Logon 已运行"
+        else
+            print_info "启动 Logon..."
+            wine MTSvrLogon.exe > "$LOG_DIR/logon.log" 2>&1 &
+            echo $! > "$LOGON_PID"
+            sleep 3
+            print_success "Logon 启动完成"
+        fi
+        
+        # GameServer
+        if is_game_running; then
+            print_skip "GameServer 已运行"
+        else
+            print_info "启动 GameServer..."
+            wine GameServer.exe > "$LOG_DIR/game.log" 2>&1 &
+            echo $! > "$GAME_PID"
+            sleep 3
+            print_success "GameServer 启动完成"
+        fi
+    else
+        print_warning "Wine 未安装，无法在 WSL 中直接运行 Windows 程序"
+        print_info "安装 Wine: sudo apt install wine64"
+        echo ""
+        
+        # 尝试通过 Windows 启动
+        if command -v cmd.exe &> /dev/null; then
+            read -p "是否尝试在 Windows 中启动服务器？(y/N): " start_in_win
+            if [[ "$start_in_win" =~ ^[Yy]$ ]]; then
+                start_game_server_in_windows
+            fi
+        fi
+    fi
+}
+
+# 在 Windows 中启动游戏服务器
+start_game_server_in_windows() {
+    print_info "在 Windows 中启动游戏服务器..."
+    
+    # 获取 WSL 路径对应的 Windows 路径
+    local win_path=$(wslpath -w "$SERVER_DIR" 2>/dev/null)
+    
+    if [[ -n "$win_path" ]]; then
+        print_info "服务器路径: $win_path"
+        
+        # 使用 cmd.exe 启动
+        cmd.exe /c "start \"DDizhu Center\" /D \"$win_path\" Center.exe" 2>/dev/null &
+        sleep 3
+        
+        cmd.exe /c "start \"DDizhu Logon\" /D \"$win_path\" MTSvrLogon.exe" 2>/dev/null &
+        sleep 3
+        
+        cmd.exe /c "start \"DDizhu GameServer\" /D \"$win_path\" GameServer.exe" 2>/dev/null &
+        sleep 3
+        
+        print_success "服务器已在 Windows 中启动"
+    else
+        print_error "无法获取 Windows 路径"
+    fi
+}
+
+# 检查进程状态
+is_center_running() {
+    if [[ -f "$CENTER_PID" ]]; then
+        local pid=$(cat "$CENTER_PID")
         if ps -p "$pid" > /dev/null 2>&1; then
             return 0
         fi
@@ -86,92 +190,27 @@ is_running() {
     return 1
 }
 
-# 启动游戏服务器
-start_game_server() {
-    print_info "启动游戏服务器..."
-    
-    if [[ ! -d "$SERVER_DIR" ]]; then
-        print_error "服务器目录不存在: $SERVER_DIR"
-        print_info "Windows 路径: C:\\GameServer"
-        print_info "请先运行 ./deploy.sh 进行部署"
-        return 1
-    fi
-    
-    cd "$SERVER_DIR"
-    
-    local started_count=0
-    local skipped_count=0
-    
-    # 检查并启动中心服务器
-    if is_win_process_running "Center.exe"; then
-        print_skip "中心服务器已在运行中"
-        ((skipped_count++))
-    else
-        if [[ -f "Center.exe" ]]; then
-            print_info "启动中心服务器..."
-            if command -v cmd.exe &> /dev/null; then
-                cmd.exe /c "start \"Center Server\" C:\\GameServer\\Center.exe" 2>/dev/null
-            else
-                ./Center.exe &
-            fi
-            sleep 3
-            print_success "中心服务器启动完成"
-            ((started_count++))
-        else
-            print_warning "Center.exe 不存在，跳过"
+is_logon_running() {
+    if [[ -f "$LOGON_PID" ]]; then
+        local pid=$(cat "$LOGON_PID")
+        if ps -p "$pid" > /dev/null 2>&1; then
+            return 0
         fi
     fi
-    
-    # 检查并启动登录服务器
-    if is_win_process_running "MTSvrLogon.exe"; then
-        print_skip "登录服务器已在运行中"
-        ((skipped_count++))
-    else
-        if [[ -f "MTSvrLogon.exe" ]]; then
-            print_info "启动登录服务器..."
-            if command -v cmd.exe &> /dev/null; then
-                cmd.exe /c "start \"Logon Server\" C:\\GameServer\\MTSvrLogon.exe" 2>/dev/null
-            else
-                ./MTSvrLogon.exe &
-            fi
-            sleep 3
-            print_success "登录服务器启动完成"
-            ((started_count++))
-        else
-            print_warning "MTSvrLogon.exe 不存在，跳过"
-        fi
-    fi
-    
-    # 检查并启动游戏服务器
-    if is_win_process_running "GameServer.exe"; then
-        print_skip "游戏服务器已在运行中"
-        ((skipped_count++))
-    else
-        if [[ -f "GameServer.exe" ]]; then
-            print_info "启动游戏服务器..."
-            if command -v cmd.exe &> /dev/null; then
-                cmd.exe /c "start \"Game Server\" C:\\GameServer\\GameServer.exe" 2>/dev/null
-            else
-                ./GameServer.exe &
-            fi
-            sleep 3
-            print_success "游戏服务器启动完成"
-            ((started_count++))
-        else
-            print_warning "GameServer.exe 不存在，跳过"
-        fi
-    fi
-    
-    echo ""
-    if [[ $started_count -gt 0 ]]; then
-        print_success "启动了 $started_count 个服务"
-    fi
-    if [[ $skipped_count -gt 0 ]]; then
-        print_info "跳过了 $skipped_count 个已运行的服务"
-    fi
+    return 1
 }
 
-# 启动 Web 服务 (IIS)
+is_game_running() {
+    if [[ -f "$GAME_PID" ]]; then
+        local pid=$(cat "$GAME_PID")
+        if ps -p "$pid" > /dev/null 2>&1; then
+            return 0
+        fi
+    fi
+    return 1
+}
+
+# 启动 Web 服务 (IIS 在 Windows 中)
 start_web_server() {
     print_info "启动 Web 服务..."
     
@@ -187,15 +226,12 @@ start_web_server() {
             sleep 2
             print_success "IIS 服务已启动"
         else
-            print_warning "无法检测 IIS 服务状态"
-            print_info "尝试启动 IIS 服务..."
-            powershell.exe -Command "Start-Service w3svc" 2>/dev/null || {
-                print_error "IIS 服务启动失败，请检查是否已安装 IIS"
-            }
+            print_warning "无法检测 IIS 状态"
+            print_info "请确保 IIS 已安装并配置"
         fi
     else
         print_warning "PowerShell 不可用"
-        print_info "请手动启动 IIS: 在 Windows 中运行 'net start w3svc'"
+        print_info "请在 Windows 中手动启动 IIS: net start w3svc"
     fi
 }
 
@@ -203,49 +239,57 @@ start_web_server() {
 stop_game_server() {
     print_info "停止游戏服务器..."
     
-    if command -v taskkill.exe &> /dev/null; then
-        local stopped_count=0
-        
-        # 停止游戏服务器
-        if is_win_process_running "GameServer.exe"; then
-            print_info "停止 GameServer.exe..."
-            taskkill.exe //IM GameServer.exe //F 2>/dev/null || true
-            print_success "游戏服务器已停止"
-            ((stopped_count++))
-        else
-            print_skip "游戏服务器未运行"
-        fi
-        
-        # 停止登录服务器
-        if is_win_process_running "MTSvrLogon.exe"; then
-            print_info "停止 MTSvrLogon.exe..."
-            taskkill.exe //IM MTSvrLogon.exe //F 2>/dev/null || true
-            print_success "登录服务器已停止"
-            ((stopped_count++))
-        else
-            print_skip "登录服务器未运行"
-        fi
-        
-        # 停止中心服务器
-        if is_win_process_running "Center.exe"; then
-            print_info "停止 Center.exe..."
-            taskkill.exe //IM Center.exe //F 2>/dev/null || true
-            print_success "中心服务器已停止"
-            ((stopped_count++))
-        else
-            print_skip "中心服务器未运行"
-        fi
-        
-        if [[ $stopped_count -eq 0 ]]; then
-            print_info "没有运行中的游戏服务器"
-        fi
-    else
-        print_warning "taskkill 命令不可用"
-        print_info "请手动停止游戏服务器"
+    local stopped=false
+    
+    # 停止 Wine 进程
+    if is_game_running; then
+        local pid=$(cat "$GAME_PID")
+        kill "$pid" 2>/dev/null || true
+        rm -f "$GAME_PID"
+        print_success "GameServer 已停止"
+        stopped=true
     fi
     
-    # 清理 PID 文件
-    rm -f "$CENTER_PID" "$LOGON_PID" "$GAME_PID" 2>/dev/null || true
+    if is_logon_running; then
+        local pid=$(cat "$LOGON_PID")
+        kill "$pid" 2>/dev/null || true
+        rm -f "$LOGON_PID"
+        print_success "Logon 已停止"
+        stopped=true
+    fi
+    
+    if is_center_running; then
+        local pid=$(cat "$CENTER_PID")
+        kill "$pid" 2>/dev/null || true
+        rm -f "$CENTER_PID"
+        print_success "Center 已停止"
+        stopped=true
+    fi
+    
+    # 停止 Windows 进程
+    if command -v taskkill.exe &> /dev/null; then
+        if is_win_process_running "GameServer.exe"; then
+            taskkill.exe //IM GameServer.exe //F 2>/dev/null || true
+            print_success "GameServer (Windows) 已停止"
+            stopped=true
+        fi
+        
+        if is_win_process_running "MTSvrLogon.exe"; then
+            taskkill.exe //IM MTSvrLogon.exe //F 2>/dev/null || true
+            print_success "Logon (Windows) 已停止"
+            stopped=true
+        fi
+        
+        if is_win_process_running "Center.exe"; then
+            taskkill.exe //IM Center.exe //F 2>/dev/null || true
+            print_success "Center (Windows) 已停止"
+            stopped=true
+        fi
+    fi
+    
+    if [[ "$stopped" != "true" ]]; then
+        print_info "没有运行中的游戏服务器"
+    fi
 }
 
 # 停止 Web 服务
@@ -263,7 +307,7 @@ stop_web_server() {
         fi
     else
         print_warning "PowerShell 不可用"
-        print_info "请手动停止 IIS: 在 Windows 中运行 'net stop w3svc'"
+        print_info "请在 Windows 中手动停止 IIS: net stop w3svc"
     fi
 }
 
@@ -275,38 +319,42 @@ show_status() {
     echo "=========================================="
     echo ""
     
+    # 游戏服务器状态
     echo -e "${CYAN}[游戏服务器]${NC}"
     
-    # 检查 Windows 进程
-    if command -v tasklist.exe &> /dev/null; then
-        # 中心服务器
-        if is_win_process_running "Center.exe"; then
-            echo -e "  中心服务器: ${GREEN}运行中${NC}"
-        else
-            echo -e "  中心服务器: ${RED}未运行${NC}"
-        fi
-        
-        # 登录服务器
-        if is_win_process_running "MTSvrLogon.exe"; then
-            echo -e "  登录服务器: ${GREEN}运行中${NC}"
-        else
-            echo -e "  登录服务器: ${RED}未运行${NC}"
-        fi
-        
-        # 游戏服务器
-        if is_win_process_running "GameServer.exe"; then
-            echo -e "  游戏服务器: ${GREEN}运行中${NC}"
-        else
-            echo -e "  游戏服务器: ${RED}未运行${NC}"
-        fi
+    if is_center_running; then
+        echo -e "  Center: ${GREEN}运行中${NC} (PID: $(cat $CENTER_PID))"
     else
-        echo -e "  无法检测进程状态 (tasklist 不可用)"
+        if is_win_process_running "Center.exe"; then
+            echo -e "  Center: ${GREEN}运行中 (Windows)${NC}"
+        else
+            echo -e "  Center: ${RED}未运行${NC}"
+        fi
+    fi
+    
+    if is_logon_running; then
+        echo -e "  Logon: ${GREEN}运行中${NC} (PID: $(cat $LOGON_PID))"
+    else
+        if is_win_process_running "MTSvrLogon.exe"; then
+            echo -e "  Logon: ${GREEN}运行中 (Windows)${NC}"
+        else
+            echo -e "  Logon: ${RED}未运行${NC}"
+        fi
+    fi
+    
+    if is_game_running; then
+        echo -e "  GameServer: ${GREEN}运行中${NC} (PID: $(cat $GAME_PID))"
+    else
+        if is_win_process_running "GameServer.exe"; then
+            echo -e "  GameServer: ${GREEN}运行中 (Windows)${NC}"
+        else
+            echo -e "  GameServer: ${RED}未运行${NC}"
+        fi
     fi
     
     echo ""
     echo -e "${CYAN}[Web 服务]${NC}"
     
-    # IIS 状态
     if command -v powershell.exe &> /dev/null; then
         local status=$(powershell.exe -Command "(Get-Service w3svc -ErrorAction SilentlyContinue).Status" 2>/dev/null | tr -d '\r')
         
@@ -317,24 +365,6 @@ show_status() {
         else
             echo -e "  IIS 服务: ${YELLOW}未知状态${NC}"
         fi
-        
-        # 检查网站状态
-        echo ""
-        echo -e "${CYAN}[网站状态]${NC}"
-        local sites=("DDizhu_Web:80" "DDizhu_HT:8080" "DDizhu_Admin:8081" "DDizhu_Agent:8082" "DDizhu_Hall:8083")
-        for site_info in "${sites[@]}"; do
-            local site_name="${site_info%%:*}"
-            local site_port="${site_info##*:}"
-            local site_state=$(powershell.exe -Command "(Get-Website -Name '$site_name' -ErrorAction SilentlyContinue).State" 2>/dev/null | tr -d '\r')
-            
-            if [[ "$site_state" == "Started" ]]; then
-                echo -e "  $site_name (:$site_port): ${GREEN}已启动${NC}"
-            elif [[ -n "$site_state" ]]; then
-                echo -e "  $site_name (:$site_port): ${YELLOW}$site_state${NC}"
-            else
-                echo -e "  $site_name (:$site_port): ${RED}未配置${NC}"
-            fi
-        done
     else
         echo -e "  IIS 服务: ${YELLOW}无法检测${NC}"
     fi
@@ -342,7 +372,6 @@ show_status() {
     echo ""
     echo -e "${CYAN}[数据库连接]${NC}"
     
-    # 检查 SQL Server 端口
     if command -v powershell.exe &> /dev/null; then
         local sql_status=$(powershell.exe -Command "Test-NetConnection -ComputerName localhost -Port 1433 -InformationLevel Quiet -WarningAction SilentlyContinue" 2>/dev/null | tr -d '\r')
         if [[ "$sql_status" == "True" ]]; then
@@ -355,9 +384,18 @@ show_status() {
     fi
     
     echo ""
+    echo -e "${CYAN}[磁盘空间]${NC}"
+    df -h /opt 2>/dev/null | tail -1 | awk '{print "  可用: " $4 " / 总计: " $2}'
+    
+    echo ""
     echo "=========================================="
     echo ""
-    echo "访问地址："
+    echo "部署路径："
+    echo "  Web: $WEB_DIR"
+    echo "  服务器: $SERVER_DIR"
+    echo "  日志: $LOG_DIR"
+    echo ""
+    echo "访问地址（配置 IIS 后）："
     echo "  - 前台网站: http://localhost"
     echo "  - 后台管理: http://localhost:8080"
     echo "  - 管理员:   http://localhost:8081"
@@ -375,8 +413,9 @@ show_logs() {
     echo ""
     
     if [[ -d "$LOG_DIR" ]]; then
-        echo "日志目录: C:\\GameServer\\logs"
+        echo "日志目录: $LOG_DIR"
         echo ""
+        
         local found_logs=false
         for log in "$LOG_DIR"/*.log; do
             if [[ -f "$log" ]]; then
@@ -391,7 +430,7 @@ show_logs() {
             print_warning "日志目录中没有日志文件"
         fi
     else
-        print_warning "日志目录不存在: C:\\GameServer\\logs"
+        print_warning "日志目录不存在: $LOG_DIR"
     fi
 }
 
@@ -411,9 +450,10 @@ print_help() {
     echo "  --logs       查看服务日志"
     echo "  --help       显示帮助信息"
     echo ""
-    echo "特性："
-    echo "  - 自动跳过已运行的服务，不会重复启动"
-    echo "  - 智能检测服务状态"
+    echo "说明："
+    echo "  - 游戏服务器是 Windows 程序，可通过 Wine 或在 Windows 中运行"
+    echo "  - Web 服务需要配置 Windows IIS"
+    echo "  - 部署路径: /opt/ddizhu/"
     echo ""
     echo "示例："
     echo "  ./start.sh           # 启动所有服务"
@@ -438,7 +478,6 @@ main() {
             start_web_server
             start_game_server
             echo ""
-            print_success "启动完成！"
             show_status
             ;;
         --web)
